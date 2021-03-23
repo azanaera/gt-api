@@ -1,0 +1,22 @@
+{
+  "requiredTemplateParameters": ["liabStartDate","liabEndDate","liabLimit"],
+  "data": {
+    "attributes": {
+      "clauseType": "coverage",
+      "pattern": {
+        "id": "BASeasonTrailerLiabCov"
+      },
+      "terms": {
+        "BASeasonTrailerLiabStartDate": {
+          "dateValue": "#(args.liabStartDate)"
+        },
+        "BASeasonTrailerLiabEndDate": {
+          "dateValue": "#(args.liabEndDate)"
+        },
+        "BASeasonTrailerLiabLimit": {
+          "directValue": "#(args.liabLimit)"
+        }
+      }
+    }
+  }
+}

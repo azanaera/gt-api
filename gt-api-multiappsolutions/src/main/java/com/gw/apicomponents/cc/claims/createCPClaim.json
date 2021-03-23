@@ -1,0 +1,82 @@
+        {  
+           "requiredTemplateParameters": ["policyNumber"],
+           "optionalTemplateParameters": ["lossDate"],
+           "data": {
+               "attributes": {
+                   "arson": false,
+                   "description": "An all field commercial property claim",
+                   "faultRating": {
+                       "code": "2"
+                   },
+                   "fireDepartmentResponded": true,
+                   "fireSource": "flamethrower",
+                   "hasWaterBeenTurnedOff": true,
+                   "howReported": {
+                       "code": "phone"
+                   },
+                   "howWasFireDiscovered": "building burned down",
+                   "isAnyoneInjured": false,
+                   "isHomeHabitable": false,
+                   "isHomeSecure": false,
+                   "isRoofProtected": false,
+                   "lobCode": {
+                       "code": "CPLine"
+                   },
+                   "lossCause": {
+                       "code": "explosion"
+                   },
+                   "lossDate": "#(getAttributeValue(args.lossDate, claimUtils.getCurrentDateTime()))",
+                   "lossLocation": {
+                       "addressLine1": "100 Main St.",
+                       "city": "Somewhere",
+                       "postalCode": "90123",
+                       "state": {
+                           "code": "CA"
+                       }
+                   },
+                   "mainContact": {
+                       "refid": "homer"
+                   },
+                   "policyNumber": "#(args.policyNumber)",
+                   "reportedByType": {
+                       "code": "friend"
+                   },
+                   "reporter": {
+                       "refid": "homer"
+                   },
+                   "smokeDamageOnly": false,
+                   "waterSource": {
+                       "code": "other"
+                   },
+                   "witnesses": [
+                       {
+                           "contact": {
+                               "refid": "homer"
+                           },
+                           "perspective": "here",
+                           "position": {
+                               "code": "0"
+                           },
+                           "statementObtained": {
+                               "code": "Yes"
+                           }
+                       }
+                   ]
+               }
+           },
+           "included": {
+               "ClaimContact": [
+                   {
+                       "attributes": {
+                           "firstName": "Homer",
+                           "lastName": "Flintstone",
+                           "contactSubtype": "Person"
+                       },
+                       "method": "post",
+                       "refid": "homer",
+                       "uri": "/claim/v1/claims/this/contacts"
+                   }
+                 ]
+                }
+        }
+ 

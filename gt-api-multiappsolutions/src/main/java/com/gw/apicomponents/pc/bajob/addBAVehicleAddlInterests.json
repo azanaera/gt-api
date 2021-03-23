@@ -1,0 +1,16 @@
+{
+  "requiredTemplateParameters": ["addlInterestType","name","refId","contractNumber"],
+  "data": {
+    "attributes": {
+      "additionalInterestType": {
+        "code": "#(args.addlInterestType)"
+      },
+      "policyAddlInterest": {
+        "displayName": "#(args.name)",
+        "id": "#(args.refId)"
+
+      },
+      "contractNumber": "#(args.contractNumber)"
+    }
+  }
+}

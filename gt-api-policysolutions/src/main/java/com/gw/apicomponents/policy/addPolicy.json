@@ -1,0 +1,27 @@
+{
+  "requiredTemplateParameters": ["companyId", "jobEffectiveDate"],
+  "optionalTemplateParameters": ["product","producerCode"],
+  "data": {
+    "attributes": {
+      "account": {
+        "id":  "#(args.companyId)"
+      },
+      "baseState": {
+        "code": "CA"
+      },
+      "jobEffectiveDate": "#(args.jobEffectiveDate)",
+      "producerCode": {
+        "id": "#(getAttributeValue(args.producerCode, 'pc:6'))"
+      },
+      "product": {
+        "id": "#(getAttributeValue(args.product, 'BusinessAuto'))"
+      },
+      "quoteType": {
+        "code": "Full"
+      },
+      "termType": {
+        "code": "Annual"
+      }
+    }
+  }
+}

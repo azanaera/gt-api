@@ -1,0 +1,16 @@
+{
+ "requiredTemplateParameters": ["incidentId"], 
+ "data": {
+    "attributes": {
+      "coverageSubtype": {
+        "code": "PAUMBICov"
+      },
+      "injuryIncident": {
+        "id": "#(args.incidentId)"
+      },
+      "primaryCoverage": {
+        "code": "PAUMBICov"
+      }
+    }
+  }
+}

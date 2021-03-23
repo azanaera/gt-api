@@ -1,0 +1,70 @@
+       {
+           "requiredTemplateParameters": ["policyNumber"],
+           "optionalTemplateParameters": ["lossDate","reporterFirstName","reporterLastName","refid"],
+		   "data": {
+               "attributes": {
+                   "lossDate": "#(getAttributeValue(args.lossDate, claimUtils.getDateWithDayOffset(-1,true)))",
+                   "lossCause": {
+                       "code": "vehcollision"
+                   },
+                   "lossLocation": {
+                       "addressLine1": "100 Main St.",
+                       "city": "San Mateo",
+                       "postalCode": "94403",
+                       "state": {
+                           "code": "CA"
+                       }
+                   },
+                   "mainContact": {
+                       "refid": "homer"
+                   },
+                   "policyNumber": "#(args.policyNumber)",
+                   "reportedByType": {
+                       "code": "friend"
+                   },
+                   "reporter": {
+                       "refid": "#(getAttributeValue(args.refid, 'Portman'))"
+                   }
+               }
+           },
+           "included": {
+               "ClaimContact": [
+                   {
+                       "attributes": {
+                           "firstName": "Homer",
+                           "lastName": "Flintstone",
+                           "contactSubtype": "Person"
+                       },
+                       "method": "post",
+                       "refid": "homer",
+                       "uri": "/claim/v1/claims/this/contacts"
+                   },
+                   {
+                       "attributes": {
+                           "firstName": "#(getAttributeValue(args.reporterFirstName, 'Robert'))",
+                           "lastName": "#(getAttributeValue(args.reporterLastName, 'Portman'))",
+                           "contactSubtype": "Person"
+                       },
+                       "method": "post",
+                       "refid": "#(getAttributeValue(args.refid, 'Portman'))",
+                       "uri": "/claim/v1/claims/this/contacts"
+                   }
+               ],
+               "VehicleIncident": [
+                   {
+                       "attributes": {
+                           "collision": true,
+                           "damageDescription": "Minor collision",
+                           "driver": {
+                               "refid": "homer"
+                           },
+                           "lossParty": {
+                               "code": "third_party"
+                           }
+                       },
+                       "method": "post",
+                       "uri": "/claim/v1/claims/this/vehicle-incidents"
+                   }
+               ]
+           }
+       }

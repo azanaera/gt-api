@@ -1,0 +1,17 @@
+{
+  "requiredTemplateParameters" : ["topic", "body"],
+  "optionalTemplateParameters" : ["securityType", "subject"],
+  "data": {
+    "attributes": {
+      "body": "#(getAttributeValue(args.body, 'No liability coverage'))",
+      "confidential": false,
+      "securityType": {
+        "code": "#(getAttributeValue(args.securityType, 'public'))"
+      },
+      "subject": "#(getAttributeValue(args.subject, 'Coverage'))",
+      "topic": {
+        "code": "#(getAttributeValue(args.topic, 'coverage'))"
+      }
+    }
+  }
+}

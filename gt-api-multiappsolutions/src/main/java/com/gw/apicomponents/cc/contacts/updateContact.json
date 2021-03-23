@@ -1,0 +1,14 @@
+
+           {
+                 "requiredTemplateParameters": ["lastName"],
+				"data": {
+                    "attributes": {
+                        "firstName": "Homer",
+                        "lastName": "#(args.lastName)"
+
+                    }
+                }
+            }
+
+
+

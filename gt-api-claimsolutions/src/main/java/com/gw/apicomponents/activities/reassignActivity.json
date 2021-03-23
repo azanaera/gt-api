@@ -1,0 +1,9 @@
+            {
+              "requiredTemplateParameters" : ["newUserGroupId","newUserId"],
+              "data": {
+                   "attributes": {
+                     "groupId": "#(args.newUserGroupId)",
+                     "userId": "#(args.newUserId)"
+                   }
+                }
+            }

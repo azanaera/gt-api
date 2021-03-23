@@ -1,0 +1,462 @@
+{
+  "data": {
+    "attributes": {
+      "currency": {
+        "code": "usd"
+      },
+      "effectiveDate": "#(getAttributeValue(args.effectiveDate, testUtils.getDateWithDayOffset(-90,true)))",
+      "endorsements": [
+        {
+          "description": "Additional Building Property",
+          "formNumber": "HOP 14 15 "
+        },
+        {
+          "description": "Flood Coverage Endorsement",
+          "formNumber": "HOP 10 65 "
+        }
+      ],
+      "expirationDate": "#(getAttributeValue(args.expirationDate, testUtils.getDateWithDayOffset(360,true)))",
+      "originalEffectiveDate": "#(getAttributeValue(args.origEffectiveDate, testUtils.getDateWithDayOffset(-95,true)))",
+      "policyContacts": [
+        {
+          "contact": {
+            "refid": "rayNewton"
+          },
+          "roles": [
+            {
+              "code": "insured"
+            }
+          ]
+        },
+        {
+          "contact": {
+            "refid": "karenEgertson"
+          },
+          "roles": [
+            {
+              "code": "agent"
+            }
+          ]
+        },
+        {
+          "contact": {
+            "refid": "stanNewton"
+          },
+          "roles": [
+            {
+              "code": "coveredparty"
+            }
+          ]
+        },
+        {
+          "contact": {
+            "refid": "brianNewton"
+          },
+          "roles": [
+            {
+              "code": "excludedparty"
+            }
+          ]
+        }
+      ],
+      "policyLocations": [
+        {
+          "address": {
+            "addressLine1": "287 Kensington Rd. #1A",
+            "addressLine2": "Level 1",
+            "addressLine3": "Unit 1",
+            "city": "South Pasadena",
+            "country": "US",
+            "county": "Los Angeles County",
+            "policyAddress": true,
+            "postalCode": "91145",
+            "state": {
+              "code": "CA",
+              "name": "California"
+            }
+          },
+          "locationBasedRiskUnits": [
+            {
+              "RUNumber": 1,
+              "building": {
+                "buildingNumber": "1",
+                "notes": "This is a building. It is very tall.",
+                "policySystemId": "pcbuilding:201"
+              },
+              "coverages": [
+                {
+                  "covTerms": [
+                    {
+                      "covTermOrder": 10,
+                      "covTermPattern": {
+                        "code": "zuhhq4ac7p78j6bt9u6gapf92o9"
+                      },
+                      "financialAmount": {
+                        "amount": "5000000.00",
+                        "currency": "usd"
+                      }
+                    }
+                  ],
+                  "coverageType": {
+                    "code": "zl4i2neakg3g4ecg0t01bj445va"
+                  },
+                  "currency": {
+                    "code": "usd"
+                  },
+                  "incidentLimit": {
+                    "amount": "150000.00",
+                    "currency": "usd"
+                  }
+                },
+                {
+                  "covTerms": [
+                    {
+                      "covTermOrder": 20,
+                      "covTermPattern": {
+                        "code": "zc1ia45ph8a7i5plpkbr35mp2c9",
+                        "name": "CovC Limit Pct"
+                      },
+                      "financialAmount": {
+                        "amount": "200000.00",
+                        "currency": "usd"
+                      }
+                    }
+                  ],
+                  "coverageType": {
+                    "code": "zbtjua8nrhpvncl90406b37g2l9"
+                  },
+                  "currency": {
+                    "code": "usd"
+                  },
+                  "incidentLimit": {
+                    "amount": "50000.00",
+                    "currency": "usd"
+                  }
+                }
+              ],
+              "description": "Property risk unit #1",
+              "policySystemId": "pc:locationBasedRU-001",
+              "subtype": {
+                "code": "PropertyRU"
+              }
+            },
+            {
+              "RUNumber": 2,
+              "building": {
+                "buildingNumber": "2",
+                "notes": "This is a building. It is fairly short.",
+                "policySystemId": "pcbuilding:202"
+              },
+              "coverages": [
+                {
+                  "covTerms": [
+                    {
+                      "covTermOrder": 30,
+                      "covTermPattern": {
+                        "code": "z4phqb5m98p7o8f4f64bindbge8"
+                      },
+                      "financialAmount": {
+                        "amount": "1000.00",
+                        "currency": "usd"
+                      }
+                    }
+                  ],
+                  "coverageType": {
+                    "code": "zr4gsjbrvihdr6ktd06s5kc87n9"
+                  },
+                  "currency": {
+                    "code": "usd"
+                  },
+                  "incidentLimit": {
+                    "amount": "100000.00",
+                    "currency": "usd"
+                  }
+                }
+              ],
+              "description": "Property risk unit #2",
+              "policySystemId": "pc:locationBasedRU-002",
+              "subtype": {
+                "code": "PropertyRU"
+              }
+            }
+          ],
+          "locationNumber": "loc-num-001",
+          "notes": "policy location notes",
+          "policySystemId": "pc:policyLocation-001",
+          "primaryLocation": true
+        },
+        {
+          "address": {
+            "addressLine1": "300 Montgomery St",
+            "addressLine2": "Suite 300",
+            "addressLine3": "Unit 1",
+            "city": "South Francisco",
+            "country": "US",
+            "policyAddress": true,
+            "postalCode": "94104",
+            "state": {
+              "code": "CA",
+              "name": "California"
+            }
+          },
+          "locationBasedRiskUnits": [
+            {
+              "RUNumber": 3,
+              "building": {
+                "buildingNumber": "12A",
+                "notes": "This is a building. It is neither short nor tall",
+                "policySystemId": "pcbuilding:203"
+              },
+              "coverages": [
+                {
+                  "covTerms": [
+                    {
+                      "covTermOrder": 10,
+                      "covTermPattern": {
+                        "code": "zuhhq4ac7p78j6bt9u6gapf92o9"
+                      },
+                      "financialAmount": {
+                        "amount": "5000000.00",
+                        "currency": "usd"
+                      }
+                    }
+                  ],
+                  "coverageType": {
+                    "code": "zl4i2neakg3g4ecg0t01bj445va"
+                  },
+                  "currency": {
+                    "code": "usd"
+                  },
+                  "incidentLimit": {
+                    "amount": "150000.00",
+                    "currency": "usd"
+                  }
+                },
+                {
+                  "covTerms": [
+                    {
+                      "covTermOrder": 20,
+                      "covTermPattern": {
+                        "code": "zc1ia45ph8a7i5plpkbr35mp2c9",
+                        "name": "CovC Limit Pct"
+                      },
+                      "financialAmount": {
+                        "amount": "200000.00",
+                        "currency": "usd"
+                      }
+                    }
+                  ],
+                  "coverageType": {
+                    "code": "zbtjua8nrhpvncl90406b37g2l9"
+                  },
+                  "currency": {
+                    "code": "usd"
+                  },
+                  "incidentLimit": {
+                    "amount": "50000.00",
+                    "currency": "usd"
+                  }
+                }
+              ],
+              "description": "Property risk unit #3",
+              "policySystemId": "pc:locationBasedRU-003",
+              "subtype": {
+                "code": "PropertyRU"
+              }
+            },
+            {
+              "RUNumber": 4,
+              "coverages": [
+                {
+                  "covTerms": [
+                    {
+                      "covTermOrder": 30,
+                      "covTermPattern": {
+                        "code": "z4phqb5m98p7o8f4f64bindbge8"
+                      },
+                      "financialAmount": {
+                        "amount": "1000.00",
+                        "currency": "usd"
+                      }
+                    }
+                  ],
+                  "coverageType": {
+                    "code": "zr4gsjbrvihdr6ktd06s5kc87n9"
+                  },
+                  "currency": {
+                    "code": "usd"
+                  },
+                  "incidentLimit": {
+                    "amount": "100000.00",
+                    "currency": "usd"
+                  }
+                }
+              ],
+              "description": "Property risk unit #4",
+              "policySystemId": "pc:locationBasedRU-004",
+              "subtype": {
+                "code": "PropertyRU"
+              }
+            }
+          ],
+          "locationNumber": "loc-num-002",
+          "notes": "Another policy location",
+          "policySystemId": "pc:policyLocation-002",
+          "primaryLocation": false
+        }
+      ],
+      "policyNumber": "#(getAttributeValue(args.policyNumber, util.randomWordPair()))",
+      "policyType": {
+        "code": "HOPHomeowners"
+      },
+      "producerCode": "#(getAttributeValue(args.producerCode, util.randomWordPair()))",
+      "status": {
+        "code": "inforce"
+      },
+      "underwritingCo": {
+        "code": "parent"
+      },
+      "underwritingGroup": {
+        "code": "acme_auto"
+      },
+      "verifiedPolicy": true
+    }
+  },
+  "included": {
+    "Contact": [
+      {
+        "attributes": {
+          "addressBookUID": "#(getAttributeValue(args.abUID, util.randomWordPair()))",
+          "emailAddress1": "0000@guidewire.com",
+          "emailAddress2": "0000@hotmail.com",
+          "firstName": "Ray",
+          "lastName": "Newton",
+          "policySystemId": "pc:contact_11",
+          "primaryAddress": {
+            "addressLine1": "287 Kensington Rd. #1A",
+            "city": "South Pasadena",
+            "country": "US",
+            "postalCode": "91145",
+            "state": {
+              "code": "CA"
+            }
+          },
+          "primaryPhoneType": {
+            "code": "work"
+          },
+          "subtype": {
+            "code": "Person"
+          },
+          "workPhone": {
+            "countryCode": {
+              "code": "US"
+            },
+            "number": "818-446-1206"
+          }
+        },
+        "method": "post",
+        "refid": "rayNewton",
+        "uri": "/testsupport/v1/contacts"
+      },
+      {
+        "attributes": {
+          "emailAddress1": "0000@guidewire.com",
+          "emailAddress2": "0000@hotmail.com",
+          "firstName": "Karen",
+          "lastName": "Egertson",
+          "policySystemId": "pc:contact_12",
+          "primaryAddress": {
+            "addressLine1": "908 Angels Landing Rd.",
+            "city": "Anaheim",
+            "country": "US",
+            "postalCode": "91352",
+            "state": {
+              "code": "CA"
+            }
+          },
+          "primaryPhoneType": {
+            "code": "work"
+          },
+          "subtype": {
+            "code": "Person"
+          },
+          "workPhone": {
+            "countryCode": {
+              "code": "US"
+            },
+            "number": "818-446-1206"
+          }
+        },
+        "method": "post",
+        "refid": "karenEgertson",
+        "uri": "/testsupport/v1/contacts"
+      },
+      {
+        "attributes": {
+          "emailAddress1": "0000@guidewire.com",
+          "emailAddress2": "0000@hotmail.com",
+          "firstName": "Stan",
+          "lastName": "Newton",
+          "policySystemId": "pc:contact_13",
+          "primaryAddress": {
+            "addressLine1": "8356 Mountain View Rd.",
+            "city": "San Bernadino",
+            "country": "US",
+            "postalCode": "91112",
+            "state": {
+              "code": "CA"
+            }
+          },
+          "primaryPhoneType": {
+            "code": "work"
+          },
+          "subtype": {
+            "code": "Person"
+          },
+          "workPhone": {
+            "countryCode": {
+              "code": "US"
+            },
+            "number": "213-457-6378"
+          }
+        },
+        "method": "post",
+        "refid": "stanNewton",
+        "uri": "/testsupport/v1/contacts"
+      },
+      {
+        "attributes": {
+          "emailAddress1": "0000@guidewire.com",
+          "emailAddress2": "0000@hotmail.com",
+          "firstName": "Brian",
+          "lastName": "Newton",
+          "policySystemId": "pc:contact_14",
+          "primaryAddress": {
+            "addressLine1": "867 Mann Ave.",
+            "city": "Alhambra",
+            "country": "US",
+            "postalCode": "91352",
+            "state": {
+              "code": "CA"
+            }
+          },
+          "primaryPhoneType": {
+            "code": "work"
+          },
+          "subtype": {
+            "code": "Person"
+          },
+          "workPhone": {
+            "countryCode": {
+              "code": "US"
+            },
+            "number": "818-446-1206"
+          }
+        },
+        "method": "post",
+        "refid": "brianNewton",
+        "uri": "/testsupport/v1/contacts"
+      }
+    ]
+  }
+}

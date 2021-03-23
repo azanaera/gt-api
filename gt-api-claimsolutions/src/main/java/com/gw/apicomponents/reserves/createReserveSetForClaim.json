@@ -1,0 +1,36 @@
+     {
+        "requiredTemplateParameters": ["amount","currency"],
+        "optionalTemplateParameters": ["costCategoryCode","costTypeCode"],
+		"data": {
+          "attributes": {
+            "reserves": [
+              {
+                "comments": "Claim Level Reserve",
+                "costCategory": {
+                  "code": "#(getAttributeValue(args.costCategoryCode, 'unspecified'))"
+                },
+                "costType": {
+                  "code": "#(getAttributeValue(args.costTypeCode, 'unspecified'))"
+                },
+                "currency": {
+                  "code": "#(args.currency)"
+                },
+                "lineItems": [
+                  {
+                    "transactionAmount": {
+                      "amount" : "#(args.amount)",
+                      "currency" : "#(args.currency)"
+                    }
+                  }
+                ],
+                "reservingCurrency": {
+                  "code": "#(args.currency)"
+                }
+              }
+            ]
+          }
+        }
+      }
+
+
+

@@ -1,0 +1,44 @@
+{
+  "optionalTemplateParameters" : ["producerCodeId", "accountCompanyName", "accountAddressLine1", "accountCity", "accountPostalCode", "accountStateCode"],
+  "data": {
+    "attributes": {
+      "initialAccountHolder": {
+        "companyName": "#(getAttributeValue(args.accountCompanyName, 'Producer Company'))",
+        "industryCode": {
+          "id": "SIC:1522"
+        },
+        "primaryAddress": {
+          "addressLine1": "#(getAttributeValue(args.accountAddressLine1, '1234 Hillsdale Blvd'))",
+          "city": "#(getAttributeValue(args.accountCity, 'Foster City'))",
+          "postalCode": "#(getAttributeValue(args.accountPostalCode, '12345'))",
+          "state": {
+            "code": "#(getAttributeValue(args.accountStateCode, 'CA'))"
+          }
+        },
+        "contactSubtype": "Company"
+      },
+      "initialPrimaryLocation": {
+        "nonSpecific": true,
+        "postalCode": "#(getAttributeValue(args.accountPostalCode, '12345'))",
+        "state": {
+          "code":  "#(getAttributeValue(args.accountStateCode, 'CA'))"
+        }
+      },
+      "organizationType": {
+        "code": "commonownership"
+      },
+      "producerCodes": [
+        {
+          "id": "#(getAttributeValue(args.producerCodeId, 'pc:42'))"
+        }
+      ],
+      "preferredCoverageCurrency": {
+        "code": "USD"
+      },
+      "preferredSettlementCurrency": {
+        "code": "USD"
+      }
+
+    }
+  }
+}

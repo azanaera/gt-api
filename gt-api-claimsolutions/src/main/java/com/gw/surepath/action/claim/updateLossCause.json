@@ -1,0 +1,10 @@
+{
+  "requiredTemplateParameters": ["lossCause"],
+  "data": {
+    "attributes": {
+      "lossCause": {
+        "code": "#(args.lossCause)"
+      }
+    }
+  }
+}

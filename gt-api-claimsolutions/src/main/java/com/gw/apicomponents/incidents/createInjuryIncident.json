@@ -1,0 +1,31 @@
+{
+  "requiredTemplateParameters" : ["injuredPersonId"],
+  "data": {
+    "attributes": {
+      "ambulanceUsed": true,
+      "description": "Head trauma, possible concussion",
+      "detailedInjuryType": {
+        "code": "07"
+      },
+      "disabledDueToAccident": {
+        "code": "notdisabled"
+      },
+      "generalInjuryType": {
+        "code": "specific"
+      },
+      "injuredPerson": {
+        "id": "#(args.injuredPersonId)"
+      },
+      "lossParty": {
+        "code": "insured"
+      },
+      "lostWages": false,
+      "severity": {
+        "code": "major-injury"
+      },
+      "treatmentType": {
+        "code": "er"
+      }
+    }
+  }
+}

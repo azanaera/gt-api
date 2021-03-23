@@ -1,0 +1,13 @@
+{
+  "requiredTemplateParameters": ["policyNumber", "reporterFirstName","reporterLastName"],
+  "data": {
+    "attributes": {
+      "firstName": "#(args.reporterFirstName)",
+      "lastName": "#(args.reporterLastName)",
+      "nameSearchType": {
+        "code": "any"
+      },
+      "policyNumber": "#(args.policyNumber)" 
+    }
+  }
+}

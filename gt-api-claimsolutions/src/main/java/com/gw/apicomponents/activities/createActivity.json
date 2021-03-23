@@ -1,0 +1,10 @@
+{
+  "requiredTemplateParameters" : ["activityPattern", "activityDescription", "activitySubject"],
+  "data": {
+    "attributes": {
+      "activityPattern": "#(args.activityPattern)",
+      "description": "#(args.activityDescription)",
+      "subject": "#(args.activitySubject)"
+    }
+  }
+}

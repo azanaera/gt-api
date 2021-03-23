@@ -1,0 +1,70 @@
+group 'com.guidewire.gt-api'
+version releaseVersion
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+apply plugin: "java"
+apply plugin: "java-library"
+apply plugin: "idea"
+sourceCompatibility = JavaVersion.VERSION_11
+
+test {
+    testLogging {
+        exceptionFormat 'full'
+        events 'started', 'skipped', 'passed', 'failed'
+        showStandardStreams true
+    }
+    outputs.upToDateWhen {false}
+}
+
+dependencies {
+    compile project(':gt-api-base')
+}
+
+task runIntegrationFeatureTests(type: JavaExec) {
+    System.setProperty("TestModule", "gt-api-multiappsolutions")
+    group = "Execution"
+    description = "Run the main class with runIntegrationFeatureTests"
+    classpath = sourceSets.main.runtimeClasspath
+    main = "ScenariosRunner"
+}
+
+// Added this gradle task to run custom test suite via test suite name as a System Property
+// ex: to run either GtApiCucumberIntegrationTestsRunner or SampleCucumberScenariosRunner
+// using gradle runTestSuite -DtestSuite=xxx command
+task runTestSuite(type: Test) {
+    def testSuiteToRun = System.getProperty("testSuite")
+    include "${testSuiteToRun}.class"
+}
+runTestSuite.onlyIf { System.getProperty("testSuite") != null}
+
+// ALL PACKAGING TASKS - DO NOT ALTER THIS LINE!
+apply plugin: "maven-publish"
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    // ToDo: 'classifier' has been deprecated, but I'm having issue replacing it with the 'archiveClassifier' property
+    // archiveClassifier = 'sources' // Didn't work in Gradle 5.6.2..
+    // archiveClassifier.set("sources") // Didn't work Gradle 5.6.2..
+    classifier = 'sources'
+
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives sourcesJar
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir file('src/main/java')
+        }
+
+        resources {
+            srcDir file('src/main/java')
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+  "requiredTemplateParameters" : ["description", "expectedDays", "amount", "currency", "refNum"],
+  "data": {
+    "attributes": {
+      "statement": {
+        "description": "#(args.description)",
+        "expectedDaysToPerformService": "#(args.expectedDays)",
+        "lineItems": [
+          {
+            "amount": {
+              "amount": "#(args.amount)",
+              "currency": "#(args.currency)"
+            },
+            "category": {
+              "code": "parts"
+            },
+            "description": "Headlight replacement"
+          }
+        ],
+        "referenceNumber": "#(args.refNum)",
+        "source": {
+          "code": "gwportal"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+            {
+               "requiredTemplateParameters" : ["claimId","body","confidential","subject","topic"],
+			   "data": {
+                    "attributes": {
+                        "body": "#(args.body)",
+                        "confidential": "#(args.confidential)",
+                        "relatedTo": {
+                            "id": "#(args.claimId)",
+                            "type": "Claim"
+                        },
+                        "securityType": {
+                            "code": "public"
+                        },
+                        "subject": "#(args.subject)",
+                        "topic": {
+                            "code": "#(args.topic)"
+                        }
+                    }
+                }
+            }

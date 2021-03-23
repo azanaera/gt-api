@@ -1,0 +1,52 @@
+               {
+                      "requiredTemplateParameters" : ["insuredId", "incidentUri"],
+                      "data": {
+                        "attributes": {
+                          "claimant": {
+                            "id": "#(args.insuredId)"
+                          },
+                          "claimantType": {
+                            "code": "insured"
+                          },
+                          "jurisdiction": {
+                            "code": "AZ"
+                          },
+                          "lossCategory": {
+                            "code": "default"
+                          },
+                          "lossParty": {
+                            "code": "insured"
+                          },
+                          "progress": {
+                            "code": "new"
+                          },
+                          "coverageSubtype": {
+                             "code": "zpsii9qu58bma5eju8f5pgi0brb" 
+                          },
+                          "livingExpensesIncident": {
+                                "refid": "newIncident"
+                          },
+                          "primaryCoverage": {
+                                "code": "zpsii9qu58bma5eju8f5pgi0brb" 
+                          }
+                        }
+                      },
+                      "included": {
+                        "LivingExpensesIncident": [
+                            {
+                                "attributes": {
+                                    "description": "A new living expenses incident",
+                                    "lossParty": {
+                                        "code": "insured"
+                                    }
+                                },
+                                "method": "post",
+                                "refid": "newIncident",
+                                "uri": "#(args.incidentUri)"
+                            }
+                        ]
+                      }
+                    }
+
+
+

@@ -1,0 +1,7 @@
+{
+  "data": {
+    "attributes": {
+      "requestedCompletionDate": "#(claimUtils.getDateWithDayOffset(5, false))"
+    }
+  }
+}

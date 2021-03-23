@@ -1,0 +1,92 @@
+group 'com.guidewire.gt-api'
+version tdm_releaseVersion
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+apply plugin: "java"
+apply plugin: "java-library"
+apply plugin: "idea"
+
+sourceCompatibility = JavaVersion.VERSION_11
+
+test {
+    testLogging {
+        exceptionFormat 'full'
+        events 'started', 'skipped', 'passed', 'failed'
+        showStandardStreams true
+    }
+    outputs.upToDateWhen {false}
+}
+
+dependencies {
+    compile project(':gt-api-base')
+}
+
+task runCCFeatureTests(type: JavaExec) {
+    System.setProperty("TestModule", "claimsolutions")
+    group = "Execution"
+    description = "Run the main class with runCCFeatureTests"
+    classpath = sourceSets.main.runtimeClasspath
+    main = "ScenariosRunner"
+}
+
+// Added this gradle task to run custom test suite via test suite name as a System Property
+// ex: to run either GtApiCucumberIntegrationTestsRunner or SampleCucumberScenariosRunner
+// using gradle runTestSuite -DtestSuite=xxx command
+task runTestSuite(type: Test) {
+    def testSuiteToRun = System.getProperty("testSuite")
+    include "${testSuiteToRun}.class"
+}
+runTestSuite.onlyIf { System.getProperty("testSuite") != null}
+
+// ALL PACKAGING TASKS - DO NOT ALTER THIS LINE!
+apply plugin: "maven-publish"
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    // ToDo: 'classifier' has been deprecated, but I'm having issue replacing it with the 'archiveClassifier' property
+    // archiveClassifier = 'sources' // Didn't work in Gradle 5.6.2..
+    // archiveClassifier.set("sources") // Didn't work Gradle 5.6.2..
+    classifier = 'sources'
+
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives sourcesJar
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir file('src/main/java')
+        }
+
+        resources {
+            srcDir file('src/main/java')
+        }
+    }
+}
+
+/*
+* This is for creating fatJar of gt-api-claimsolutions so that it can be used in gt-ui as gt-data utility.
+* Note: As gt-api-claimsolutions module is used as independent module comment out dependencies on other modules while creating fatJar.
+*/
+jar {
+    manifest {
+        attributes "Main-Class": "com.gw.datacreation.CCDataLoadingUtil"
+    }
+
+    from (configurations.runtimeClasspath.findAll{
+        it.name.endsWith('jar') && !it.name.startsWith('gt-api-base')
+    }.collect { it.isDirectory() ? it : zipTree(it) }){
+        exclude ("log4j.properties")
+        exclude 'META-INF/*.RSA'
+        exclude 'META-INF/*.SF'
+        exclude 'META-INF/*.DSA'
+        exclude 'META-INF', 'META-INF/**'
+        exclude 'license','license/**'
+    }
+}

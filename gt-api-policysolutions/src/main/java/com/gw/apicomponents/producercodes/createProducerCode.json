@@ -1,0 +1,10 @@
+{
+  "requiredTemplateParameters": ["code","organization","roles"],
+  "data": {
+    "attributes": {
+      "roles": ["#(args.roles)"],
+      "code": "#(args.code)",
+      "organization": "#(args.organization)"
+    }
+  }
+}

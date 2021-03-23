@@ -1,0 +1,10 @@
+{
+  "optionalTemplateParameters": ["primaryAddressAddressLine1"],
+  "data": {
+    "attributes": {
+      "primaryAddress": {
+        "addressLine1": "#(getAttributeValue(args.primaryAddressAddressLine1, '1001 Hillsdale'))"
+      }
+    }
+  }
+}

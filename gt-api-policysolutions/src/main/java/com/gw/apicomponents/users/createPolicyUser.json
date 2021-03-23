@@ -1,0 +1,11 @@
+{
+  "requiredTemplateParameters": ["userName","roles","groups","useProducerCodeSecurity"],
+  "data": {
+    "attributes": {
+      "roles": ["#(args.roles)"],
+      "username": "#(args.userName)",
+      "useProducerCodeSecurity": "#(args.useProducerCodeSecurity)",
+      "groups": ["#(args.groups)"]
+    }
+  }
+}

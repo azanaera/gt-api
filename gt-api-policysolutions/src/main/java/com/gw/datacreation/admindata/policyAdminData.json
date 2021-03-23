@@ -1,0 +1,78 @@
+{
+  "data": {
+    "attributes": {
+      "users": [
+        {
+          "userName": "Underwriter",
+          "roles": [
+            "underwriter"
+          ],
+          "groups": [
+            "pcgroup1"
+          ],
+          "useProducerCodeSecurity": false
+        },
+        {
+          "userName": "Producer",
+          "roles": [
+            "producer"
+          ],
+          "groups": [
+            "pcgroup1"
+          ],
+          "useProducerCodeSecurity": true
+        },
+        {
+          "userName": "pcunderwriter",
+          "roles": [
+            "underwriter"
+          ],
+          "groups": [
+            "pcgroup1"
+          ],
+          "useProducerCodeSecurity": false
+        },
+        {
+          "userName": "pcproducer1",
+          "roles": [
+            "producer"
+          ],
+          "groups": [
+            "pcgroup1"
+          ],
+          "useProducerCodeSecurity": true
+        },
+        {
+          "userName": "pcproducer2",
+          "roles": [
+            "producer"
+          ],
+          "groups": [
+            "pcgroup2"
+          ],
+          "useProducerCodeSecurity": true
+        }
+      ],
+      "groups": [
+        {
+          "groupIdentifier": "pcgroup1",
+          "producerCodeIdentifier": "pcproducercode1"
+        },
+        {
+          "groupIdentifier": "pcgroup2",
+          "producerCodeIdentifier": "pcproducercode2"
+        }
+      ],
+      "producerCodes": [
+        {
+          "producerCodeIdentifier": "pcproducercode1",
+          "organization": "pc:1"
+        },
+        {
+          "producerCodeIdentifier": "pcproducercode2",
+          "organization": "pc:2"
+        }
+      ]
+    }
+  }
+}

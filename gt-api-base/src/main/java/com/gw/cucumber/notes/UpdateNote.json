@@ -1,0 +1,18 @@
+{
+   "data": {
+        "attributes": {
+            "confidential": "#(getAttributeValue(args.confidentiality, true))",
+            "relatedTo": {
+                "id": "#(args.claimId)",
+                "type": "Claim"
+            },
+            "securityType": {
+                "code": "public"
+            },
+            "subject": "#(getAttributeValue(args.subject, 'test note subject'))",
+            "topic": {
+                "code": "#(getAttributeValue(args.topic, 'evaluation'))"
+            }
+        }
+    }
+}

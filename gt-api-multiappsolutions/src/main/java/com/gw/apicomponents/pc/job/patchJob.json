@@ -1,0 +1,11 @@
+{
+  "optionalTemplateParameters": ["termTypeCode"],
+  "data": {
+    "attributes": {
+      "termType": {
+        "code": "#(getAttributeValue(args.termTypeCode, 'HalfYear'))"
+      }
+    }
+  }
+}
+

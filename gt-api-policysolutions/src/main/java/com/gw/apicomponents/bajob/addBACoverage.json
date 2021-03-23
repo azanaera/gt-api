@@ -1,0 +1,12 @@
+{
+  "requiredTemplateParameters": ["coverageId"],
+  "optionalTemplateParameters": ["clauseType"],
+  "data": {
+    "attributes": {
+      "clauseType": "#(getAttributeValue(args.clauseType, 'coverage'))",
+      "pattern": {
+        "id": "#(args.coverageId)"
+      }
+    }
+  }
+}

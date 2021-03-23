@@ -1,0 +1,60 @@
+{
+  "requiredTemplateParameters" : ["newSpecialistUri", "customerId", "serviceCode", "kindCode"],
+  "optionalTemplateParameters" : ["address"],
+  "data": {
+    "attributes": {
+      "instruction": {
+        "customer": {
+          "id": "#(args.customerId)"
+        },
+        "serviceAddress": {
+          "addressLine1": "#(getAttributeValue(args.address.addressLine1, '9050 Sunbeam Drive'))",
+          "city": "#(getAttributeValue(args.address.city, 'Anaheim'))",
+          "state": {
+            "code": "#(getAttributeValue(args.address.state.code, 'CA'))"
+          },
+          "postalCode": "#(getAttributeValue(args.address.postalCode, '92804'))",
+          "country": "#(getAttributeValue(args.address.country, 'US'))"
+        },
+        "services": [
+          {
+            "code": "#(args.serviceCode)"
+          }
+        ]
+      },
+      "kind": {
+        "code": "#(args.kindCode)"
+      },
+      "specialist": {
+        "refid": "vendor"
+      },
+      "requestedServiceCompletionDate": "#(claimUtils.getDateWithDayOffset(5, false))",
+      "tier": {
+        "code": "low"
+      }
+    }
+  },
+
+  "included": {
+    "ClaimContact": [
+      {
+        "attributes": {
+          "companyName": "Allendale",
+          "contactSubtype": "Company",
+          "primaryAddress": {
+            "addressLine1": "1001 E Hillsdale Blvd",
+            "city": "Foster City",
+            "state": {
+              "code": "CA"
+            },
+            "postalCode": "94404",
+            "country": "US"
+          }
+        },
+        "refid": "vendor",
+        "method": "post",
+        "uri": "#(args.newSpecialistUri)"
+      }
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+            {
+                "requiredTemplateParameters" : ["mainContactId"],
+				"data": {
+                    "attributes": {
+                        "claimant": {
+                            "id": "#(args.mainContactId)"
+                        },
+                        "claimantType": {
+                            "code": "householdmember"
+                        }
+                    }
+                }
+            }
+ 

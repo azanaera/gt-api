@@ -1,0 +1,20 @@
+            {
+			    "requiredTemplateParameters" : ["locationId"],
+                "data": {
+                    "attributes": {
+                        "description": "Fixed Property incident",
+                        "location": {
+                            "id": "#(args.locationId)"
+                        },
+                        "lossParty": {
+                            "code": "insured"
+                        },
+                        "occupancyType": {
+                            "code": "vacant"
+                        },
+                        "severity": {
+                            "code": "minor"
+                        }
+                    }
+                }
+            }

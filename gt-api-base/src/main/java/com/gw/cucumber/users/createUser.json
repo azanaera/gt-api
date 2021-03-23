@@ -1,0 +1,9 @@
+{
+  "data": {
+    "attributes": {
+      "authorityProfile": "#(args.authorityProfile)",
+      "roles": ["#(args.role)"],
+      "username": "#(args.userName)"
+    }
+  }
+}

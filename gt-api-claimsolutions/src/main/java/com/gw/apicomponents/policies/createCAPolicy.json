@@ -1,0 +1,551 @@
+{
+  "optionalTemplateParameters": ["policyNumber","producerCode","effectiveDate","origEffectiveDate","expirationDate","abUID"],
+  "data": {
+    "attributes": {
+        "currency": {
+        "code": "usd",
+        "name": "USD"
+      },
+      "effectiveDate": "#(getAttributeValue(args.effectiveDate, claimUtils.getDateWithDayOffset(-90,true)))",
+      "expirationDate": "#(getAttributeValue(args.expirationDate, claimUtils.getDateWithDayOffset(360,true)))",
+      "originalEffectiveDate": "#(getAttributeValue(args.origEffectiveDate, claimUtils.getDateWithDayOffset(-95,true)))",
+      "policyContacts": [
+        {
+          "contact": {
+            "refid": "reliableTrucking"
+          },
+          "roles": [
+            {
+              "code": "insured"
+            }
+          ]
+        },
+        {
+          "contact": {
+            "refid": "annabelleArlington"
+          },
+          "roles": [
+            {
+              "code": "agent"
+            }
+          ]
+        },
+        {
+          "contact": {
+            "refid": "cynthiaArmstrong"
+          },
+          "roles": [
+            {
+              "code": "coveredparty"
+            }
+          ]
+        },
+        {
+          "contact": {
+            "refid": "jamesBeard"
+          },
+          "roles": [
+            {
+              "code": "coveredparty"
+            }
+          ]
+        },
+        {
+          "contact": {
+            "refid": "michelleSorenson"
+          },
+          "roles": [
+            {
+              "code": "maincontact"
+            }
+          ]
+        }
+      ],
+      "policyNumber": "#(getAttributeValue(args.policyNumber, util.randomWordPair()))",
+      "policyType": {
+        "code": "BusinessAuto",
+        "name": "Commercial Auto"
+      },
+      "producerCode": "#(getAttributeValue(args.producerCode, util.randomWordPair()))",
+      "status": {
+        "code": "inforce"
+      },
+      "underwritingCo": {
+        "code": "parent"
+      },
+      "underwritingGroup": {
+        "code": "acme_auto"
+      },
+      "vehicleRiskUnits": [
+        {
+          "RUNumber": 1,
+          "coverages": [
+            {
+              "covTerms": [
+                {
+                  "covTermPattern": {
+                    "code": "BACollisionDeduct"
+                  },
+                  "financialAmount": {
+                    "amount": "1000.00",
+                    "currency": "usd"
+                  }
+                }
+              ],
+              "coverageType": {
+                "code": "BACollisionCov"
+              },
+              "incidentLimit": {
+                "amount": "9000.00",
+                "currency": "usd"
+              }
+            },
+            {
+              "coverageType": {
+                "code": "BAOwnedLiabilityCov"
+              },
+              "currency": {
+                "code": "usd"
+              },
+              "incidentLimit": {
+                "amount": "30000.00",
+                "currency": "usd"
+              }
+            }
+          ],
+          "policySystemId": "pcveh:8",
+          "vehicle": {
+            "licensePlate": "4964846",
+            "make": "Freightliner",
+            "model": "Tractor-1",
+            "policySystemId": "pcveh:8",
+            "state": {
+              "code": "NC"
+            },
+            "vin": "1FUPACYBXKH341308",
+            "year": 1989
+          }
+        },
+        {
+          "RUNumber": 2,
+          "coverages": [
+            {
+              "covTerms": [
+                {
+                  "covTermPattern": {
+                    "code": "BACollisionDeduct"
+                  },
+                  "financialAmount": {
+                    "amount": "1000.00",
+                    "currency": "usd"
+                  }
+                }
+              ],
+              "coverageType": {
+                "code": "BACollisionCov"
+              },
+              "currency": {
+                "code": "usd"
+              },
+              "incidentLimit": {
+                "amount": "10000.00",
+                "currency": "usd"
+              }
+            },
+            {
+              "coverageType": {
+                "code": "BAOwnedLiabilityCov"
+              },
+              "currency": {
+                "code": "usd"
+              },
+              "incidentLimit": {
+                "amount": "30000.00",
+                "currency": "usd"
+              }
+            }
+          ],
+          "policySystemId": "pcveh:9",
+          "vehicle": {
+            "licensePlate": "1839460",
+            "make": "WhiteGMC",
+            "model": "Tractor-2",
+            "policySystemId": "pcveh:9",
+            "state": {
+              "code": "NC"
+            },
+            "vin": "4V1WDBJF8LN623310",
+            "year": 1990
+          }
+        },
+        {
+          "RUNumber": 3,
+          "coverages": [
+            {
+              "covTerms": [
+                {
+                  "covTermPattern": {
+                    "code": "BACollisionDeduct"
+                  },
+                  "financialAmount": {
+                    "amount": "1000.00",
+                    "currency": "usd"
+                  }
+                }
+              ],
+              "coverageType": {
+                "code": "BACollisionCov"
+              },
+              "currency": {
+                "code": "usd"
+              },
+              "incidentLimit": {
+                "amount": "10000.00",
+                "currency": "usd"
+              }
+            },
+            {
+              "coverageType": {
+                "code": "BAOwnedLiabilityCov"
+              },
+              "currency": {
+                "code": "usd"
+              },
+              "incidentLimit": {
+                "amount": "30000.00",
+                "currency": "usd"
+              }
+            }
+          ],
+          "policySystemId": "pcveh:10",
+          "vehicle": {
+            "licensePlate": "8364725",
+            "make": "WhiteGMC",
+            "model": "Tractor-3",
+            "policySystemId": "pcveh:10",
+            "state": {
+              "code": "NC"
+            },
+            "vin": "4V1WDBJF6LN623306",
+            "year": 1990
+          }
+        },
+        {
+          "RUNumber": 4,
+          "coverages": [
+            {
+              "covTerms": [
+                {
+                  "covTermPattern": {
+                    "code": "BACollisionDeduct"
+                  },
+                  "financialAmount": {
+                    "amount": "1000.00",
+                    "currency": "usd"
+                  }
+                }
+              ],
+              "coverageType": {
+                "code": "BACollisionCov"
+              },
+              "currency": {
+                "code": "usd"
+              },
+              "incidentLimit": {
+                "amount": "15000.00",
+                "currency": "usd"
+              }
+            },
+            {
+              "coverageType": {
+                "code": "BAOwnedLiabilityCov"
+              },
+              "currency": {
+                "code": "usd"
+              },
+              "incidentLimit": {
+                "amount": "30000.00",
+                "currency": "usd"
+              }
+            }
+          ],
+          "policySystemId": "pcveh:11",
+          "vehicle": {
+            "licensePlate": "8478367",
+            "make": "Freightliner",
+            "model": "Tractor-4",
+            "policySystemId": "pcveh:11",
+            "state": {
+              "code": "NC"
+            },
+            "vin": "1FUYDPYB5PH479736",
+            "year": 1993
+          }
+        },
+        {
+          "RUNumber": 5,
+          "coverages": [
+            {
+              "covTerms": [
+                {
+                  "covTermPattern": {
+                    "code": "BACollisionDeduct"
+                  },
+                  "financialAmount": {
+                    "amount": "1000.00",
+                    "currency": "usd"
+                  }
+                }
+              ],
+              "coverageType": {
+                "code": "BACollisionCov"
+              },
+              "currency": {
+                "code": "usd"
+              },
+              "incidentLimit": {
+                "amount": "18500.00",
+                "currency": "usd"
+              }
+            },
+            {
+              "coverageType": {
+                "code": "BAOwnedLiabilityCov"
+              },
+              "currency": {
+                "code": "usd"
+              },
+              "incidentLimit": {
+                "amount": "30000.00",
+                "currency": "usd"
+              }
+            }
+          ],
+          "policySystemId": "pcveh:12",
+          "vehicle": {
+            "licensePlate": "2920984",
+            "make": "Freightliner",
+            "model": "Tractor-5",
+            "policySystemId": "pcveh:12",
+            "state": {
+              "code": "NC"
+            },
+            "vin": "1FUYDPYB3PH479749",
+            "year": 1993
+          }
+        },
+        {
+          "RUNumber": 6,
+          "coverages": [
+            {
+              "covTerms": [
+                {
+                  "covTermPattern": {
+                    "code": "BACollisionDeduct"
+                  },
+                  "financialAmount": {
+                    "amount": "1000.00",
+                    "currency": "usd"
+                  }
+                }
+              ],
+              "coverageType": {
+                "code": "BACollisionCov"
+              },
+              "currency": {
+                "code": "usd"
+              },
+              "incidentLimit": {
+                "amount": "22000.00",
+                "currency": "usd"
+              }
+            },
+            {
+              "coverageType": {
+                "code": "BAOwnedLiabilityCov"
+              },
+              "currency": {
+                "code": "usd"
+              },
+              "incidentLimit": {
+                "amount": "30000.00",
+                "currency": "usd"
+              }
+            }
+          ],
+          "policySystemId": "pcveh:13",
+          "vehicle": {
+            "licensePlate": "3009274",
+            "make": "Freightliner",
+            "model": "Tractor-6",
+            "policySystemId": "pcveh:13",
+            "state": {
+              "code": "NC"
+            },
+            "vin": "1FUY3MCB8SH671914",
+            "year": 1995
+          }
+        }
+      ],
+      "verifiedPolicy": true
+    }
+  },
+  "included": {
+    "Contact": [
+      {
+        "attributes": {
+          "addressBookUID": "#(getAttributeValue(args.abUID, util.randomWordPair()))",
+          "companyName": "Reliable Trucking Company",
+          "emailAddress1": "0000@guidewire.com",
+          "emailAddress2": "0000@hotmail.com",
+          "primaryAddress": {
+            "addressLine1": "3160 Juniper Rd.,",
+            "city": "Shelby",
+            "postalCode": "28150",
+            "state": {
+              "code": "NC"
+            }
+          },
+          "subtype": {
+            "code": "Company"
+          },
+          "workPhone": {
+            "countryCode": {
+              "code": "US"
+            },
+            "number": "704-434-2008"
+          }
+        },
+        "method": "post",
+        "refid": "reliableTrucking",
+        "uri": "/testsupport/v1/contacts"
+      },
+      {
+        "attributes": {
+          "emailAddress1": "0000@guidewire.com",
+          "emailAddress2": "0000@hotmail.com",
+          "firstName": "Annabelle",
+          "lastName": "Arlington",
+          "primaryAddress": {
+            "addressLine1": "2050 Eagle Landing Blvd.",
+            "city": "Charleston",
+            "postalCode": "29406",
+            "state": {
+              "code": "SC",
+              "name": "South Carolina"
+            }
+          },
+          "primaryPhoneType": {
+            "code": "work"
+          },
+          "subtype": {
+            "code": "Person"
+          },
+          "workPhone": {
+            "countryCode": {
+              "code": "US"
+            },
+            "number": "843-553-2001"
+          }
+        },
+        "method": "post",
+        "refid": "annabelleArlington",
+        "uri": "/testsupport/v1/contacts"
+      },
+      {
+        "attributes": {
+          "emailAddress1": "0000@guidewire.com",
+          "emailAddress2": "0000@hotmail.com",
+          "firstName": "Cynthia D",
+          "lastName": "Armstrong",
+          "primaryAddress": {
+            "addressLine1": "3150 Old School Rd.",
+            "city": "Shelby",
+            "postalCode": "28150",
+            "state": {
+              "code": "NC",
+              "name": "North Carolina"
+            }
+          },
+          "primaryPhoneType": {
+            "code": "work"
+          },
+          "subtype": {
+            "code": "Person"
+          },
+          "workPhone": {
+            "countryCode": {
+              "code": "US"
+            },
+            "number": "704-434-2007"
+          }
+        },
+        "method": "post",
+        "refid": "cynthiaArmstrong",
+        "uri": "/testsupport/v1/contacts"
+      },
+      {
+        "attributes": {
+          "emailAddress1": "0000@guidewire.com",
+          "emailAddress2": "0000@hotmail.com",
+          "firstName": "James",
+          "lastName": "Beard",
+          "primaryAddress": {
+            "addressLine1": "3150 Old School Rd.",
+            "city": "Shelby",
+            "postalCode": "28150",
+            "state": {
+              "code": "NC"
+            }
+          },
+          "primaryPhoneType": {
+            "code": "work"
+          },
+          "subtype": {
+            "code": "Person"
+          },
+          "workPhone": {
+            "countryCode": {
+              "code": "US"
+            },
+            "number": "704-434-2007"
+          }
+        },
+        "method": "post",
+        "refid": "jamesBeard",
+        "uri": "/testsupport/v1/contacts"
+      },
+      {
+        "attributes": {
+          "emailAddress1": "0000@guidewire.com",
+          "emailAddress2": "0000@hotmail.com",
+          "firstName": "Michelle",
+          "lastName": "Sorenson",
+          "primaryAddress": {
+            "addressLine1": "1075 Aspen Lane",
+            "city": "Cofield",
+            "postalCode": "28150",
+            "state": {
+              "code": "NC"
+            }
+          },
+          "primaryPhoneType": {
+            "code": "work"
+          },
+          "subtype": {
+            "code": "Person"
+          },
+          "workPhone": {
+            "countryCode": {
+              "code": "US"
+            },
+            "number": "704-446-2929"
+          }
+        },
+        "method": "post",
+        "refid": "michelleSorenson",
+        "uri": "/testsupport/v1/contacts"
+      }
+    ]
+  }
+}

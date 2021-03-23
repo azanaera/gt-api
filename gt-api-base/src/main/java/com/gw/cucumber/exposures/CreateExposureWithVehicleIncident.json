@@ -1,0 +1,40 @@
+{
+  "data": {
+    "attributes": {
+      "claimant": {
+        "id": "#(args.insuredId)"
+      },
+      "claimantType": {
+        "code": "insured"
+      },
+      "coverageSubtype": {
+        "code": "#(getAttributeValue(args.coverageCode, 'PACollisionCov'))"
+      },
+      "jurisdiction": {
+        "code": "AZ"
+      },
+      "lossCategory": {
+        "code": "default"
+      },
+      "lossParty": {
+        "code": "insured"
+      },
+      "primaryCoverage": {
+        "code": "#(getAttributeValue(args.coverageCode, 'PACollisionCov'))"
+      },
+      "progress": {
+        "code": "new"
+      },
+      "tier": {
+        "code": "low"
+      },
+      "vehicleIncident": {
+        "id": "#(args.incidentId)"
+      }
+    }
+  }
+}
+
+
+
+

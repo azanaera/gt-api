@@ -1,0 +1,17 @@
+{
+  "requiredTemplateParameters" : ["code"],
+  "data": {
+    "attributes": {
+      "name": "#(args.code)",
+      "code": "#(args.code)",
+      "compatibleKinds": [
+        "quoteonly","serviceonly","quoteandservice"
+      ],
+      "compatibleIncidentTypes": [
+        "VehicleIncident", "InjuryIncident", "PropertyIncident", "FixedPropertyIncident", "TripIncident",
+        "PropertyContentsIncident", "LivingExpensesIncident", "DwellingIncident"
+      ],
+      "active": true
+    }
+  }
+}

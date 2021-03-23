@@ -1,0 +1,17 @@
+{
+    "included": {
+        "Note": [
+          {
+            "attributes": {
+              "body": "Note body",
+              "subject": "Note subject",
+              "topic": {
+                "code": "general"
+              }
+            },
+              "method": "post",
+              "uri": "#(args.activityURI)"
+          }
+        ]
+      }
+}

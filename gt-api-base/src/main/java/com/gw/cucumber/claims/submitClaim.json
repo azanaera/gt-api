@@ -1,0 +1,10 @@
+{
+  "data": {
+    "attributes": {
+      "initialAssignment": {
+        "groupId": "#(getAttributeValue(args.groupId, testDataContainer.getUser(\"ccadjuster1\").getGroupId()))",
+        "userId": "#(getAttributeValue(args.userId, testDataContainer.getUser(\"ccadjuster1\").getId()))"
+      }
+    }
+  }
+}

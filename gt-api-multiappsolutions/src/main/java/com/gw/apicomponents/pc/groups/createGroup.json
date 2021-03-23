@@ -1,0 +1,10 @@
+{
+  "requiredTemplateParameters": ["userName","organization","producerCodes"],
+  "data": {
+    "attributes": {
+      "name": "#(args.userName)",
+      "organization": "#(args.organization)",
+      "producerCodes":[ {"id":"#(args.producerCodes)"}]
+    }
+  }
+}

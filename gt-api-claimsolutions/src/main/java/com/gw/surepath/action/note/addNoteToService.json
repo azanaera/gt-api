@@ -1,0 +1,20 @@
+{
+  "requiredTemplateParameters" : ["serviceId", "topic", "body"],
+  "data": {
+    "attributes": {
+      "body": "#(args.body)",
+      "confidential": false,
+      "relatedTo": {
+        "id": "#(args.serviceId)",
+        "type": "ServiceRequest"
+      },
+      "securityType": {
+        "code": "public"
+      },
+      "subject": "#(args.topic)",
+      "topic": {
+        "code": "#(args.topic)"
+      }
+    }
+  }
+}

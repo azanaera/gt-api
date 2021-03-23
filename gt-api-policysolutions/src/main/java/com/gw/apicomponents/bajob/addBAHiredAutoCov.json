@@ -1,0 +1,18 @@
+{
+  "requiredTemplateParameters": ["BAHiredLiabilityLimit"],
+  "data": {
+    "attributes": {
+      "clauseType": "coverage",
+      "pattern": {
+        "id": "BAHiredLiabilityCov"
+      },
+      "terms": {
+        "BAHiredLiabilityBI": {
+          "choiceValue": {
+            "code": "#(args.BAHiredLiabilityLimit)"
+          }
+        }
+      }
+    }
+  }
+}

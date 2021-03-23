@@ -1,0 +1,11 @@
+{
+  "requiredTemplateParameters": ["groupId","userId"],
+  "data": {
+    "attributes": {
+      "initialAssignment": {
+        "groupId": "#(args.groupId)",
+        "userId": "#(args.userId)"
+      }
+    }
+  }
+}

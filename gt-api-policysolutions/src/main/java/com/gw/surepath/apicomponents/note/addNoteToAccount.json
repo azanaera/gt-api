@@ -1,0 +1,16 @@
+{
+  "optionalTemplateParameters" : ["Body", "SecurityLevel", "Subject", "Topic"],
+  "data": {
+    "attributes": {
+      "body": "#(getAttributeValue(args.Body, 'Account in Pending status'))",
+      "confidential": false,
+      "securityType": {
+        "code": "#(getAttributeValue(args.SecurityLevel, 'unrestricted'))"
+      },
+      "subject": "#(getAttributeValue(args.Subject, 'Status Report'))",
+      "topic": {
+        "code": "#(getAttributeValue(args.Topic, 'general'))"
+      }
+    }
+  }
+}

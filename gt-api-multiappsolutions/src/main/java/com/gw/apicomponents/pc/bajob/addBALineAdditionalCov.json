@@ -1,0 +1,18 @@
+{
+  "requiredTemplateParameters": ["BADOCCompCovLimit"],
+  "data": {
+    "attributes": {
+      "clauseType": "coverage",
+      "pattern": {
+        "id": "BADOCCompCov"
+      },
+      "terms": {
+        "BADOCCompDeduct": {
+          "choiceValue": {
+            "code": "#(args.BADOCCompCovLimit)"
+          }
+        }
+      }
+    }
+  }
+}

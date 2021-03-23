@@ -1,0 +1,11 @@
+{
+   "data": {
+     "attributes": {
+       "firstName": "Homer",
+       "lastName": "Flintstone",
+       "contactSubtype": "Person"
+
+     }
+   }
+}
+

@@ -1,0 +1,9 @@
+{
+  "requiredTemplateParameters": ["basis"],
+  "data": {
+    "attributes": {
+      "basis": "#(args.basis)",
+      "ifAnyExposure": true
+    }
+  }
+}

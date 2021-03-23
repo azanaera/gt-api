@@ -1,0 +1,85 @@
+{
+  "requiredTemplateParameters": ["policyNumber"],
+  "optionalTemplateParameters": ["lossDate"],
+  "data": {
+    "attributes": {
+      "description": "An all field auto claim",
+      "faultRating": {
+        "code": "1"
+      },
+      "howReported" : {
+        "code": "phone"
+      },
+      "incidentOnly": false,
+      "lobCode": {
+        "code": "PersonalAutoLine"
+      },
+      "lossCause": {
+        "code": "vehcollision"
+      },
+      "lossDate": "#(getAttributeValue(args.lossDate, claimUtils.getDateWithDayOffset(-3,true)))",
+      "lossLocation": {
+        "addressLine1": "100 Main St.",
+        "city": "Somewhere",
+        "postalCode": "90123",
+        "state": {
+          "code": "CA"
+        }
+      },
+     "mainContact": {
+        "refid": "homer"
+      },
+      "policyNumber": "#(args.policyNumber)",
+      "reportedByType" : {
+        "code": "friend"
+      },
+      "reporter": {
+        "refid": "homer"
+      },
+      "witnesses": [
+        {
+          "contact": {
+            "refid": "homer"
+          },
+          "perspective": "here",
+          "position": {
+            "code": "0"
+          },
+          "statementObtained": {
+            "code": "Yes"
+          }
+        }
+      ]
+    }
+  },
+  "included": {
+    "ClaimContact": [
+      {
+        "attributes": {
+          "firstName": "Homer",
+          "lastName": "Flintstone",
+          "contactSubtype": "Person"
+               },
+        "method": "post",
+        "refid": "homer",
+        "uri": "/claim/v1/claims/this/contacts"
+      }
+    ],
+    "VehicleIncident": [
+      {
+        "attributes": {
+          "collision": true,
+          "damageDescription": "Minor collision",
+          "driver": {
+            "refid": "homer"
+          },
+          "lossParty": {
+            "code": "third_party"
+          }
+        },
+        "method": "post",
+        "uri": "/claim/v1/claims/this/vehicle-incidents"
+      }
+    ]
+  }
+}

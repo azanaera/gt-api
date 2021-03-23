@@ -1,0 +1,55 @@
+{
+  "optionalTemplateParameters" : ["producerCodeId", "accountLocationStateCode", "accountContactCompanyName", "accountContactAddressLine1", "accountContactCity", "accountContactPostalCode", "accountContactStateCode"],
+  "data": {
+    "attributes": {
+      "primaryLocation": {
+        "refid": "newloc"
+      },
+      "accountHolder": {
+        "refid": "newcompany"
+      },
+      "organizationType": {
+        "code": "individual"
+      },
+      "producerCodes": [
+        {
+          "id": "#(getAttributeValue(args.producerCodeId, 'pc:6'))"
+        }
+      ]
+    }
+  },
+  "included": {
+    "AccountLocation": [
+      {
+        "attributes": {
+          "nonSpecific": true,
+          "state": {
+            "code": "#(getAttributeValue(args.accountLocationStateCode, 'CA'))"
+          }
+        },
+        "method": "post",
+        "refid": "newloc",
+        "uri": "/account/v1/accounts/this/locations"
+      }
+    ],
+    "AccountContact": [
+      {
+        "attributes": {
+          "contactSubtype": "Company",
+          "companyName": "#(getAttributeValue(args.accountContactCompanyName, 'Policy Insured Company'))",
+          "primaryAddress": {
+            "addressLine1":"#(getAttributeValue(args.accountContactAddressLine1, '1001 E Hillsdale Blvd'))",
+            "city": "#(getAttributeValue(args.accountContactCity, 'Foster City'))",
+            "postalCode": "#(getAttributeValue(args.accountContactPostalCode, '94404'))",
+            "state": {
+              "code": "#(getAttributeValue(args.accountContactStateCode, 'CA'))"
+            }
+          }
+        },
+        "method": "post",
+        "refid": "newcompany",
+        "uri": "/account/v1/accounts/this/contacts"
+      }
+    ]
+  }
+}

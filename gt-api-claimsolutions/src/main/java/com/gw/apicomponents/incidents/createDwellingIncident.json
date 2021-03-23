@@ -1,0 +1,42 @@
+ {
+                "data": {
+                    "attributes": {
+                        "damagedAreaSize": 1000,
+                        "description": "Dwelling damaged by explosion",
+                        "dwellingRoomDamages": [
+                            {
+                                "numberOfRooms": 1,
+                                "roomType": {
+                                    "code": "bedroom"
+                                }
+                            },
+                            {
+                                "numberOfRooms": 2,
+                                "roomType": {
+                                    "code": "garage"
+                                }
+                            }
+                        ],
+                        "fireProtectionAvailable": true,
+                        "lossParty": {
+                            "code": "insured"
+                        },
+                        "materialsDamaged": "Floor and walls",
+                        "numberOfPeopleOnPolicy": 3,
+                        "occupancyType": {
+                            "code": "occupied"
+                        },
+                        "propertySize": 6000,
+                        "severity": {
+                            "code": "minor"
+                        },
+                        "yearBuilt": "2000-03-01T00:00:00Z",
+                        "yearsInHome": 2
+                    }
+                }
+            }
+
+
+
+
+

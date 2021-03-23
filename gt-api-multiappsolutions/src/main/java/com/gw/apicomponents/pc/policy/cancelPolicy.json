@@ -1,0 +1,15 @@
+{
+  "requiredTemplateParameters" : ["reason", "source", "jobEffectiveDate"],
+  "optionalTemplateParameters" : [],
+  "data": {
+    "attributes": {
+      "cancellationReasonCode": {
+        "code": "#(args.reason)"
+      },
+      "cancellationSource": {
+        "code": "#(args.source)"
+      },
+      "jobEffectiveDate": "#(args.jobEffectiveDate)"
+    }
+  }
+}

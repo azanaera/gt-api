@@ -1,0 +1,25 @@
+{
+  "data": {
+    "attributes": {
+      "users": [{
+        "testDataIdentifier": "ccadjuster1",
+        "authorityProfile": "Adjuster",
+        "role": "adjuster",
+        "user": "adjuster"
+      },
+        {
+          "testDataIdentifier": "ccadjuster2",
+          "authorityProfile": "Adjuster",
+          "role": "adjuster",
+          "user": "adjuster"
+        },
+        {
+          "testDataIdentifier": "ccsupervisor",
+          "authorityProfile": "Claims Supervisor",
+          "role": "claims_supervisor",
+          "user": "claimsSupervisor"
+        }
+      ]
+    }
+  }
+}

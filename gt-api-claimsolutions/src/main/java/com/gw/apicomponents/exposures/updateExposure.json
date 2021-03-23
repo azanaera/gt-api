@@ -1,0 +1,19 @@
+            {
+                "requiredTemplateParameters" : ["insuredId","jurisdictionCode"],
+				"data": {
+                    "attributes": {
+                        "claimant": {
+                            "id": "#(args.insuredId)"
+                        },
+                        "claimantType": {
+                            "code": "insured"
+                        },
+                        "jurisdiction": {
+                            "code": "#(args.jurisdictionCode)"
+                        }
+                    }
+                }
+            }
+
+
+

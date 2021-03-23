@@ -1,0 +1,28 @@
+{
+  "requiredTemplateParameters" : ["description", "amount", "currency", "refNum"],
+  "data": {
+    "attributes": {
+      "description": "#(args.description)",
+      "lineItems": [
+        {
+          "amount": {
+            "amount": "#(args.amount)",
+            "currency": "#(args.currency)"
+          },
+          "category": {
+            "code": "parts"
+          }
+        }
+      ],
+      "referenceNumber": "#(args.refNum)",
+      "source": {
+        "code": "gwportal"
+      }
+    }
+  }
+}
+
+
+
+
+

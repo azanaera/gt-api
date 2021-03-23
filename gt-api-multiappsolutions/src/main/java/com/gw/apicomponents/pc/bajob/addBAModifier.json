@@ -1,0 +1,12 @@
+{
+  "requiredTemplateParameters": ["assessmentValue"],
+  "data": {
+    "attributes": {
+      "rateFactors": {
+        "wKgDT6NusbUAAAAA": {
+          "assessment": "#(args.assessmentValue)"
+        }
+      }
+    }
+  }
+}

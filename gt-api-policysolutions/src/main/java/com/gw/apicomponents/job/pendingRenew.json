@@ -1,0 +1,10 @@
+{
+  "optionalTemplateParameters": ["renewalCode"],
+  "data": {
+    "attributes": {
+      "renewalCode": {
+        "code": "#(getAttributeValue(args.renewalCode, 'goodrisk')) "
+      }
+    }
+  }
+}

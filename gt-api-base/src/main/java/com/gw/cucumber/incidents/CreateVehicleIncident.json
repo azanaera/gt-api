@@ -1,0 +1,31 @@
+{
+  "data": {
+    "attributes": {
+      "collision": true,
+      "collisionPoint": {
+        "code": "03"
+      },
+      "damageDescription": "#(getAttributeValue(args.damageDescription, 'Damaged front bumper'))",
+      "driver": {
+        "id": "#(args.insuredId)"
+      },
+      "lossParty": {
+        "code": "insured"
+      },
+      "severity": {
+        "code": "major-auto"
+      },
+      "vehicle": {
+        "vin": "#(getAttributeValue(args.vin, '12345678901234567'))",
+        "make": "#(getAttributeValue(args.make, 'Subaru'))",
+        "model": "#(getAttributeValue(args.model, 'Outback'))",
+        "year" : "#(getAttributeValue(args.year, 2009))",
+        "licensePlate" : "#(getAttributeValue(args.licensePlate, '9LWS098'))",
+        "state" : {
+          "code" : "#(getAttributeValue(args.state, 'CA'))"
+        },
+        "color": "#(getAttributeValue(args.color, 'silver'))"
+      }
+    }
+  }
+}

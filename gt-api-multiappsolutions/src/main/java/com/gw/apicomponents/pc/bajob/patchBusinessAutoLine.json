@@ -1,0 +1,14 @@
+{
+  "optionalTemplateParameters": ["fleetType","policyTypeCode"],
+  "data": {
+    "attributes": {
+      "fleet": {
+        "code": "#(getAttributeValue(args.fleetType, 'nonfleet'))"
+      },
+      "policyType": {
+        "code": "#(getAttributeValue(args.policyTypeCode, 'BA'))"
+      }
+    }
+  }
+}
+

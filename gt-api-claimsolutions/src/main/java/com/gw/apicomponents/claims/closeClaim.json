@@ -1,0 +1,10 @@
+{
+  "data": {
+    "attributes": {
+      "closedOutcome": {
+        "code": "completed"
+      },
+      "reason": "Test note"
+    }
+  }
+}

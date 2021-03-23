@@ -1,0 +1,39 @@
+                 {
+                      "requiredTemplateParameters" : ["insuredId", "dwellingIncidentId"],
+                   	  "data": {
+                        "attributes": {
+                          "claimant": {
+                            "id": "#(args.insuredId)"
+                          },
+                          "claimantType": {
+                            "code": "insured"
+                          },
+                          "coverageSubtype": {
+                            "code": "zl4i2neakg3g4ecg0t01bj445va"
+                          },
+                          "jurisdiction": {
+                            "code": "AZ"
+                          },
+                          "lossCategory": {
+                            "code": "default"
+                          },
+                          "lossParty": {
+                            "code": "insured"
+                          },
+                          "primaryCoverage": {
+                            "code": "zl4i2neakg3g4ecg0t01bj445va"
+                          },
+                          "progress": {
+                            "code": "new"
+                          },
+                          "tier": {
+                            "code": "low"
+                          },
+                          "dwellingIncident": {
+                            "id": "#(args.dwellingIncidentId)"
+                          }
+                        }
+                      }
+                    }
+
+

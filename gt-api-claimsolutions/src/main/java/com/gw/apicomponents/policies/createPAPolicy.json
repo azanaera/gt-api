@@ -1,0 +1,405 @@
+{
+  "optionalTemplateParameters": ["policyNumber","producerCode","effectiveDate","origEffectiveDate","expirationDate","abUID"],
+  "data": {
+    "attributes": {
+      "currency": {
+        "code": "usd"
+      },
+      "endorsements": [
+        {
+          "description": "Towing and Labor Costs Coverage",
+          "formNumber": "PP 03 03"
+        },
+        {
+          "description": "Extended Non-Owned Coverage For Named Individual",
+          "formNumber": "PP 03 06"
+        },
+        {
+          "description": "Coverage For Excess Sound Reproducing Equipment, Audio, Visual & Data Electronic Equipment & Tapes, Records, Discs & Other Media",
+          "formNumber": "PP 03 13"
+        }
+      ],
+      "effectiveDate": "#(getAttributeValue(args.effectiveDate, claimUtils.getDateWithDayOffset(-90,true)))",
+      "expirationDate": "#(getAttributeValue(args.expirationDate, claimUtils.getDateWithDayOffset(360,true)))",
+      "originalEffectiveDate": "#(getAttributeValue(args.origEffectiveDate, claimUtils.getDateWithDayOffset(-95,true)))",
+      "policyContacts": [
+        {
+          "contact": {
+            "refid": "johnPortman"
+          },
+          "roles": [
+            {
+              "code": "insured"
+            }
+          ]
+        },
+        {
+          "contact": {
+            "refid": "karenEgertson"
+          },
+          "roles": [
+            {
+              "code": "agent"
+            }
+          ]
+        },
+        {
+          "contact": {
+            "refid": "stanPortman"
+          },
+          "roles": [
+            {
+              "code": "coveredparty"
+            }
+          ]
+        },
+        {
+          "contact": {
+            "refid": "brianPortman"
+          },
+          "roles": [
+            {
+              "code": "excludedparty"
+            }
+          ]
+        }
+      ],
+      "policyCoverages": [
+        {
+          "incidentLimit": {
+            "amount": "30000.00",
+            "currency": "usd"
+          },
+          "exposureLimit": {
+            "amount": "15000.00",
+            "currency": "usd"
+          },
+          "coverageType": {
+            "code": "PALiabilityCov"
+          }
+        },
+        {
+          "incidentLimit": {
+            "amount": "500.00",
+            "currency": "usd"
+          },
+          "coverageType": {
+            "code": "PAMedPayCov"
+          }
+        }
+      ],
+      "policyNumber": "#(getAttributeValue(args.policyNumber, util.randomWordPair()))",
+      "policyType": {
+        "code": "PersonalAuto"
+      },
+      "producerCode": "#(getAttributeValue(args.producerCode, util.randomWordPair()))",
+      "status": {
+        "code": "inforce"
+      },
+      "vehicleRiskUnits": [
+        {
+          "RUNumber": 1,
+          "coverages": [
+            {
+              "covTerms": [
+                {
+                  "covTermPattern": {
+                    "code": "PACollDeductible"
+                  },
+                  "financialAmount": {
+                    "amount": "500.00",
+                    "currency": "usd"
+                  }
+                }
+              ],
+              "coverageType": {
+                "code": "PACollisionCov"
+              },
+              "incidentLimit": {
+                "amount": "15000.00",
+                "currency": "usd"
+              }
+            },
+            {
+              "covTerms": [
+                {
+                  "covTermPattern": {
+                    "code": "PACompDeductible"
+                  },
+                  "financialAmount": {
+                    "amount": "500.00",
+                    "currency": "usd"
+                  }
+                }
+              ],
+              "coverageType": {
+                "code": "PAComprehensiveCov"
+              },
+              "incidentLimit": {
+                "amount": "10000.00",
+                "currency": "usd"
+              }
+            },
+            {
+              "coverageType": {
+                "code": "PALiabilityCov"
+              },
+              "exposureLimit": {
+                "amount": "15000.00",
+                "currency": "usd"
+              },
+              "incidentLimit": {
+                "amount": "30000.00",
+                "currency": "usd"
+              }
+            },
+            {
+              "coverageType": {
+                "code": "PAMedPayCov"
+              },
+              "incidentLimit": {
+                "amount": "500.00",
+                "currency": "usd"
+              }
+            }
+          ],
+          "policySystemId": "pcveh:1",
+          "vehicle": {
+            "licensePlate": "1HGJ465",
+            "make": "Saturn",
+            "model": "SL",
+            "policySystemId": "pcveh:1",
+            "state": {
+              "code": "CA"
+            },
+            "vin": "1GV234TV347463345",
+            "year": 1997
+          }
+        },
+        {
+          "RUNumber": 2,
+          "coverages": [
+            {
+              "covTerms": [
+                {
+                  "covTermPattern": {
+                    "code": "PACollDeductible"
+                  },
+                  "financialAmount": {
+                    "amount": "500.00",
+                    "currency": "usd"
+                  }
+                }
+              ],
+              "coverageType": {
+                "code": "PACollisionCov"
+              },
+              "incidentLimit": {
+                "amount": "10000.00",
+                "currency": "usd"
+              }
+            },
+            {
+              "covTerms": [
+                {
+                  "covTermPattern": {
+                    "code": "PACompDeductible"
+                  },
+                  "financialAmount": {
+                    "amount": "500.00",
+                    "currency": "usd"
+                  }
+                }
+              ],
+              "coverageType": {
+                "code": "PAComprehensiveCov"
+              },
+              "incidentLimit": {
+                "amount": "5000.00",
+                "currency": "usd"
+              }
+            },
+            {
+              "coverageType": {
+                "code": "PALiabilityCov"
+              },
+              "exposureLimit": {
+                "amount": "75000.00",
+                "currency": "usd"
+              },
+              "incidentLimit": {
+                "amount": "150000.00",
+                "currency": "usd"
+              }
+            },
+            {
+              "coverageType": {
+                "code": "PAMedPayCov"
+              },
+              "incidentLimit": {
+                "amount": "5000.00",
+                "currency": "usd"
+              }
+            }
+          ],
+          "policySystemId": "pcveh:2",
+          "vehicle": {
+            "licensePlate": "2GDH967",
+            "make": "Toyota",
+            "model": "Corolla",
+            "policySystemId": "pcveh:2",
+            "state": {
+              "code": "CA"
+            },
+            "vin": "3DGF78575GD892534",
+            "year": 1996
+          }
+        }
+      ],
+      "verifiedPolicy": true,
+      "underwritingCo": {
+        "code": "parent"
+      },
+      "underwritingGroup": {
+        "code": "acme_auto"
+      }
+    }
+  },
+  "included": {
+    "Contact": [
+      {
+        "attributes": {
+          "addressBookUID": "#(getAttributeValue(args.abUID, util.randomWordPair()))",
+          "emailAddress1": "0000@guidewire.com",
+          "emailAddress2": "0000@hotmail.com",
+          "firstName": "John",
+          "lastName": "Portman",
+          "primaryAddress": {
+            "addressLine1": "287 Kensington Rd. #1A",
+            "city": "South Pasadena",
+            "country": "US",
+            "postalCode": "91145",
+            "state": {
+              "code": "CA"
+            }
+          },
+          "primaryPhoneType": {
+            "code": "work"
+          },
+          "subtype": {
+            "code": "Person"
+          },
+          "workPhone": {
+            "countryCode": {
+              "code": "US"
+            },
+            "number": "818-446-1206"
+          },
+          "policySystemId": "pc:contact_1"
+        },
+        "method": "post",
+        "refid": "johnPortman",
+        "uri": "/testsupport/v1/contacts"
+      },
+      {
+        "attributes": {
+          "emailAddress1": "0000@guidewire.com",
+          "emailAddress2": "0000@hotmail.com",
+          "firstName": "Karen",
+          "lastName": "Egertson",
+          "primaryAddress": {
+            "addressLine1": "908 Angels Landing Rd.",
+            "city": "Anaheim",
+            "country": "US",
+            "postalCode": "91352",
+            "state": {
+              "code": "CA"
+            }
+          },
+          "primaryPhoneType": {
+            "code": "work"
+          },
+          "subtype": {
+            "code": "Person"
+          },
+          "workPhone": {
+            "countryCode": {
+              "code": "US"
+            },
+            "number": "818-446-1206"
+          },
+          "policySystemId": "pc:contact_2"
+        },
+        "method": "post",
+        "refid": "karenEgertson",
+        "uri": "/testsupport/v1/contacts"
+      },
+      {
+        "attributes": {
+          "emailAddress1": "0000@guidewire.com",
+          "emailAddress2": "0000@hotmail.com",
+          "firstName": "Stan",
+          "lastName": "Portman",
+          "primaryAddress": {
+            "addressLine1": "8356 Mountain View Rd.",
+            "city": "San Bernadino",
+            "country": "US",
+            "postalCode": "91112",
+            "state": {
+              "code": "CA"
+            }
+          },
+          "primaryPhoneType": {
+            "code": "work"
+          },
+          "subtype": {
+            "code": "Person"
+          },
+          "workPhone": {
+            "countryCode": {
+              "code": "US"
+            },
+            "number": "213-457-6378"
+          },
+          "policySystemId": "pc:contact_3"
+        },
+        "method": "post",
+        "refid": "stanPortman",
+        "uri": "/testsupport/v1/contacts"
+      },
+      {
+        "attributes": {
+          "emailAddress1": "0000@guidewire.com",
+          "emailAddress2": "0000@hotmail.com",
+          "firstName": "Brian",
+          "lastName": "Portman",
+          "primaryAddress": {
+            "addressLine1": "867 Mann Ave.",
+            "city": "Alhambra",
+            "country": "US",
+            "postalCode": "91352",
+            "state": {
+              "code": "CA"
+            }
+          },
+          "primaryPhoneType": {
+            "code": "work"
+          },
+          "subtype": {
+            "code": "Person"
+          },
+          "workPhone": {
+            "countryCode": {
+              "code": "US"
+            },
+            "number": "818-446-1206"
+          },
+          "policySystemId": "pc:contact_4"
+        },
+        "method": "post",
+        "refid": "brianPortman",
+        "uri": "/testsupport/v1/contacts"
+      }
+    ]
+  }
+}

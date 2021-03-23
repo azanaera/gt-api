@@ -1,0 +1,27 @@
+{
+  "requiredTemplateParameters": ["locationId","vehicleVIN"],
+  "optionalTemplateParameters": ["bodyTypeCode", "vehicleClassCode", "vehicleTypeCode"],
+  "data": {
+    "attributes": {
+      "bodyType": {
+        "code": "#(getAttributeValue(args.bodyTypeCode, 'pickup'))"
+      },
+      "costNew": {
+        "amount": "25000",
+        "currency": "USD"
+      },
+      "licensePlate": "qwqwqw",
+      "licenseState": {
+        "code": "CA"
+      },
+      "location": {
+        "id": "#(args.locationId)"
+      },
+      "vehicleClassCode": "#(getAttributeValue(args.vehicleClassCode, '001441'))",
+      "vehicleType": {
+        "code": "#(getAttributeValue(args.vehicleTypeCode, 'Commercial'))"
+      },
+      "vin": "#(args.vehicleVIN)"
+    }
+  }
+}

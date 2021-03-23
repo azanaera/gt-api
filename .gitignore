@@ -1,0 +1,7 @@
+.idea/
+.gradle/
+gradlecache/
+**/target/
+**/build/
+**/out/
+

@@ -1,0 +1,10 @@
+{
+  "requiredTemplateParameters": ["rewriteCode"],
+  "data": {
+    "attributes": {
+      "rewriteType": {
+        "code": "#(args.rewriteCode)"
+      }
+    }
+  }
+}

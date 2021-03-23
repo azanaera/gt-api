@@ -1,0 +1,35 @@
+                {
+                     "requiredTemplateParameters": ["insuredId","incidentId"],
+					 "data": {
+                        "attributes": {
+                          "claimant": {
+                            "id": "#(args.insuredId)"
+                          },
+                          "claimantType": {
+                            "code": "insured"
+                          },
+                          "coverageSubtype": {
+                            "code": "CPBldgCov"
+                          },
+                          "jurisdiction": {
+                            "code": "AZ"
+                          },
+                          "lossCategory": {
+                            "code": "default"
+                          },
+                          "lossParty": {
+                            "code": "insured"
+                          },
+                          "primaryCoverage": {
+                            "code": "CPBldgCov"
+                          },
+                          "progress": {
+                            "code": "new"
+                          },
+                          "fixedPropertyIncident": {
+                            "id": "#(args.incidentId)"
+                          }
+                        }
+                      }
+                    }
+ 

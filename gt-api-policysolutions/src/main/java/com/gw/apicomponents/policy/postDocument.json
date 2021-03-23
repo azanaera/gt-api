@@ -1,0 +1,15 @@
+{
+  "requiredTemplateParameters" : ["name"],
+  "optionalTemplateParameters" : ["statusCode", "typeCode"],
+  "data": {
+    "attributes": {
+      "name": "#(args.name)",
+      "status": {
+        "code": "#(getAttributeValue(args.statusCode, 'draft'))"
+      },
+      "type": {
+        "code": "#(getAttributeValue(args.typeCode, 'letter_sent'))"
+      }
+    }
+  }
+}

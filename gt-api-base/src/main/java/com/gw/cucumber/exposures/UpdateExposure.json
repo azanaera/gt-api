@@ -1,0 +1,18 @@
+{
+    "data": {
+        "attributes": {
+            "claimant": {
+                "id": "#(args.insuredId)"
+            },
+            "claimantType": {
+                "code": "insured"
+            },
+            "jurisdiction": {
+                "code": "#(getAttributeValue(args.jurisdictionCode, 'NY'))"
+            }
+        }
+    }
+}
+
+
+

@@ -1,0 +1,191 @@
+
+buildscript {
+    ext {
+        karateVersion = "0.9.4"
+    }
+}
+
+plugins {
+    id 'java'
+    id 'java-library'
+}
+
+allprojects {
+    apply plugin: "java"
+    apply plugin: "java-library"
+    apply plugin: "idea"
+    apply plugin: "maven-publish"
+    sourceCompatibility = JavaVersion.VERSION_11
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    dependencies {
+        implementation group: 'io.cucumber', name: 'cucumber-junit', version: '5.5.0'
+        implementation group: 'io.cucumber', name: 'cucumber-java', version: '5.5.0'
+        implementation group: 'io.cucumber', name: 'cucumber-picocontainer', version: '5.5.0'
+
+        implementation files(project.rootDir.toString() + "/libs/gt-api-framework-" + gt_api_framework_releaseVersion + ".jar")
+
+        implementation ("com.intuit.karate:karate-apache:${karateVersion}") {
+            exclude group:'org.yaml', module:'snakeyaml'
+        }
+        implementation  "com.intuit.karate:karate-junit4:${karateVersion}"
+        implementation  "com.intuit.karate:karate-core:${karateVersion}"
+        implementation  ("com.intuit.karate:karate-gatling:${karateVersion}") {
+            exclude group:'com.fasterxml.jackson.core', module:'jackson-databind'
+            exclude group:'io.netty', module:'netty-codec-http'
+            exclude group:'org.bouncycastle', module:'bcprov-jdk15on'
+            exclude group:'io.netty', module:'netty-codec'
+            exclude group:'io.netty', module:'netty-codec-http2'
+            exclude group:'io.netty', module:'netty-codec-socks'
+            exclude group:'io.netty', module:'netty-codec-dns'
+        }
+        implementation  "com.intuit.karate:karate-apache:${karateVersion}"
+        implementation  ('net.masterthought:cucumber-reporting:4.7.0') {
+            exclude group:'commons-collections', module:'commons-collections'
+        }
+        implementation  group: 'janino', name: 'janino', version: '2.5.10'
+        implementation  group: 'io.zipkin.brave', name: 'brave', version: '5.7.0'
+        implementation 'ch.qos.logback:logback-classic:1.2.3'
+        implementation 'org.apache.commons:commons-lang3:3.9'
+        implementation 'org.bitbucket.b_c:jose4j:0.6.5'
+        implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.13.3'
+
+        implementation group: 'org.yaml', name: 'snakeyaml', version: '1.27'
+        implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.2'
+        implementation group: 'commons-collections', name: 'commons-collections', version: '3.2.2'
+
+        runtime files(project.rootDir.toString() + "/libs/xray-" + xray_releaseVersion + ".zip")
+    }
+
+    sourceSets {
+        main {
+            java {
+                srcDir file('src/main/java')
+            }
+
+            resources {
+                srcDir file('src/main/java')
+            }
+        }
+        test {
+            java {
+                srcDir file('src/test/java')
+                srcDir file('src/main/java')
+            }
+
+            resources {
+                srcDir file('src/main/java')
+            }
+        }
+    }
+}
+
+task build(overwrite: true, dependsOn: 'prepareXrayModule')
+
+task copyXrayModuleFromRuntimeLibraries(type: Copy) {
+
+    from(configurations.runtime) {
+        include 'xray-' + xray_releaseVersion + '.zip'
+    }
+    into file("${buildDir}")
+}
+
+task prepareXrayModule(type: Copy, dependsOn: 'copyXrayModuleFromRuntimeLibraries') {
+    def inputFile = file(project.rootDir.toString() + "/libs/xray-" + xray_releaseVersion + ".zip")
+    def outputDir = file("${buildDir}/xray")
+
+    from zipTree(inputFile)
+    into outputDir
+}
+
+task xrayNodeModulesInstall(type: Exec) {
+    workingDir "${buildDir}/xray"
+    commandLine 'npm','install'
+}
+
+task xrayCucumberSync(type: Exec, dependsOn: 'xrayNodeModulesInstall') {
+    def featureDir = xray_featureDir;
+    workingDir "${buildDir}/xray/main"
+    commandLine 'node', 'mainXrayCucumberScenarioSync.js', xray_projectId, featureDir
+}
+xrayCucumberSync.onlyIf { !xray_featureDir.isEmpty() }
+
+task xrayPrepareReport(type: Exec, dependsOn: 'xrayNodeModulesInstall') {
+    workingDir "${buildDir}/xray/main"
+    commandLine 'node', 'mainXrayPrepareCucumberReport.js', xray_projectId, xray_featureDir, xray_reportsDir
+}
+xrayPrepareReport.onlyIf { !xray_featureDir.isEmpty() && !xray_reportsDir.isEmpty() }
+
+task xrayImportTestExecutions(type: Exec, dependsOn: 'xrayPrepareReport') {
+    workingDir "${buildDir}/xray/main"
+    commandLine 'node', 'mainXrayImportTestExecutions.js', xray_projectId, xray_featureDir, xray_reportsDir
+}
+xrayImportTestExecutions.onlyIf { !xray_featureDir.isEmpty() && !xray_reportsDir.isEmpty() }
+
+task runSmokeTests(description: 'Smoke Test - healthcheck before running whole functional test suite.') {
+    subprojects.each{
+        dependsOn it.tasks.getByName('test')
+    }
+}
+
+// ALL GPM TASKS - DO NOT ALTER THIS LINE!
+// Define all GPM tasks below. All other gradle code to be shipped to customers
+// must be defined above this comment.
+import org.apache.tools.ant.filters.ReplaceTokens
+
+task updateParametersInPackageYml(type: Copy) {
+
+    if (file(deployment_dir + "/package.yml").exists()) {
+        delete deployment_dir + "/package.yml"
+    }
+    from deployment_dir + "/package.yml.template"
+    rename { return "package.yml" }
+    into deployment_dir
+    filter(ReplaceTokens, tokens: [releaseVersion: releaseVersion])
+    filter(ReplaceTokens, tokens: [releaseGroup: releaseGroup])
+    filter(ReplaceTokens, tokens: [appCompatibleVersion: appCompatibleVersion])
+}
+
+task packageFilesForGpm(type: Zip, dependsOn: updateParametersInPackageYml) {
+
+    File destinationDirectory = file(deployment_dir)
+    String archiveFileName = project.name + ".zip"
+
+    from(".") {
+        exclude ".idea/**"
+        exclude ".gradle/**"
+        exclude "build/**"
+        exclude "*/build/**"
+        exclude deployment_dir + "/**"
+    }
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = releaseGroup
+            artifactId = project.name
+            version = releaseVersion
+
+            artifact source: packageFilesForGpm, extension: 'zip'
+            artifact source: deployment_dir + '/package.yml', extension: 'yml', classifier: 'package'
+        }
+    }
+
+    repositories {
+        maven {
+            credentials {
+                if (System.getenv('ARTIFACTORY_USER') == null || System.getenv('ARTIFACTORY_PASSWORD') == null) {
+                    logger.warn("Must set environment variables ARTIFACTORY_USER and ARTIFACTORY_PASSWORD to publish to Artifactory")
+                }
+                username = System.getenv('ARTIFACTORY_USER')
+                password = System.getenv('ARTIFACTORY_PASSWORD')
+            }
+            url "${ARTIFACTORY_URL}"
+        }
+    }
+}

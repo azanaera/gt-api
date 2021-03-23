@@ -1,0 +1,11 @@
+{
+   "data": {
+     "attributes": {
+       "firstName": "#(getAttributeValue(args.firstName, 'Alice'))",
+       "lastName": "#(getAttributeValue(args.lastName, 'Smith'))",
+       "contactSubtype": "#(getAttributeValue(args.contactSubtype, 'Contact'))"
+
+     }
+   }
+}
+

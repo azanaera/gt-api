@@ -1,0 +1,62 @@
+{
+  "optionalTemplateParameters" : ["producerCodeId", "accountLocationStateCode", "accountFirstName", "accountLastName", "accountContactAddressLine1", "accountContactCity", "accountContactPostalCode", "accountContactStateCode"],
+  "data": {
+    "attributes": {
+      "primaryLocation": {
+        "refid": "newloc"
+      },
+      "accountHolder": {
+        "refid": "newperson"
+      },
+      "organizationType": {
+        "code": "individual"
+      },
+      "producerCodes": [
+        {
+          "id": "#(getAttributeValue(args.producerCodeId, 'pc:6'))"
+        }
+      ],
+      "preferredCoverageCurrency": {
+        "code": "USD"
+      },
+      "preferredSettlementCurrency": {
+        "code": "USD"
+      }
+    }
+  },
+  "included": {
+    "AccountLocation": [
+      {
+        "attributes": {
+          "nonSpecific": true,
+          "state": {
+            "code": "#(getAttributeValue(args.accountLocationStateCode, 'CA'))"
+          }
+        },
+        "method": "post",
+        "refid": "newloc",
+        "uri": "/account/v1/accounts/this/locations"
+      }
+    ],
+    "AccountContact": [
+      {
+        "attributes": {
+          "contactSubtype": "Person",
+          "firstName": "#(getAttributeValue(args.accountFirstName, 'Test'))",
+          "lastName": "#(getAttributeValue(args.accountLastName, 'Person'))",
+          "primaryAddress": {
+            "addressLine1":"#(getAttributeValue(args.accountContactAddressLine1, '1234 Hillsdale Blvd'))",
+            "city": "#(getAttributeValue(args.accountContactCity, 'Foster City'))",
+            "postalCode": "#(getAttributeValue(args.accountContactPostalCode, '94404'))",
+            "state": {
+              "code": "#(getAttributeValue(args.accountContactStateCode, 'CA'))"
+            }
+          }
+        },
+        "method": "post",
+        "refid": "newperson",
+        "uri": "/account/v1/accounts/this/contacts"
+      }
+    ]
+  }
+}

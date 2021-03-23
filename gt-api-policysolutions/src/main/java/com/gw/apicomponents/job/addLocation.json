@@ -1,0 +1,20 @@
+{
+  "requiredTemplateParameters": [
+    "addressLine1",
+    "city",
+    "postalCode",
+    "stateCode",
+    "countryCode"
+  ],
+  "data": {
+    "attributes": {
+      "addressLine1": "#(args.addressLine1)",
+      "city": "#(args.city)",
+      "state": {
+        "code": "#(args.stateCode)"
+      },
+      "postalCode": "#(args.postalCode)",
+      "country": "#(args.countryCode)"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "requiredTemplateParameters" : ["reason", "reasonText"],
+  "optionalTemplateParameters" : [],
+  "data": {
+    "attributes": {
+      "rejectReason": {
+        "code": "#(args.reason)"
+      },
+      "rejectReasonText": "#(args.reasonText)"
+    }
+  }
+}

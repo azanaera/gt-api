@@ -1,0 +1,10 @@
+{
+  "optionalTemplateParameters": ["nonRenewalCode"],
+  "data": {
+    "attributes": {
+      "nonRenewalCode": {
+        "code": "#(getAttributeValue(args.nonRenewalCode, 'change'))"
+      }
+    }
+  }
+}
