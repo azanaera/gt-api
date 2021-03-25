@@ -62,5 +62,10 @@ Feature: Activities
     Then status 201
     * setStepVariable('activityId', response.data.attributes.id)
 
-
-
+  @id=GetActivity
+  Scenario: the activity with the {string} Activity Pattern and {string} Subject should exist on that claim
+    * def parameters = ['activityPattern','subject']
+    Given url claimsUrl + "/" +  __arg.claimId + "/activities"
+    When method GET
+    Then status 200
+    * match response.data[*].attributes.id contains __arg.activityId
