@@ -53,5 +53,14 @@ Feature: Activities
     * match response.data.attributes.status.code == "complete"
 
 
+  @id=AddActivity
+  Scenario: I add an activity with {string} Activity Pattern and {string} Subject on that claim
+    * def parameters = ['activityPattern','subject']
+    Given url claimsUrl + "/" +  __arg.claimId + "/activities"
+    And request readWithArgs('classpath:com/gw/cucumber/activities/addActivityRequest.json', __arg.parameters)
+    When method POST
+    Then status 201
+    * setStepVariable('activityId', response.data.attributes.id)
+
 
 
