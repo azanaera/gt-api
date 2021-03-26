@@ -60,4 +60,16 @@ Feature: Claims
     * match response.data.attributes.insured.id == __arg.cucumberDataCache.insuredId
 
 
+  @id=SearchClaims
+  Scenario: I search claims with following inputs {string} {string}
+    * def parameters = ['lastName', 'code']
+    * def searchClaimsUrl = ccBaseUrl + '/rest/claim/v1/search/claims'
+    * def searchClaimsTemplate = 'classpath:com/gw/cucumber/claims/searchClaims.json'
+    Given url searchClaimsUrl
+    And request readWithArgs(searchClaimsTemplate, __arg)
+    When method POST
+    Then status 200
+
+
+
 

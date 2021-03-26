@@ -1,0 +1,11 @@
+{
+  "data": {
+    "attributes": {
+      "firstName" : "John",
+      "lastName": "#(args.lastName)",
+      "nameSearchType": {
+        "code": "#(args.code)"
+      }
+    }
+  }
+}
