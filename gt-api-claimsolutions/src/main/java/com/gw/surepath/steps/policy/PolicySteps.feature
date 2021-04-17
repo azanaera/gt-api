@@ -8,3 +8,4 @@ Feature: Policy
     * __arg.cucumberDataCache.lineOfBusiness = 'PersonalAuto'
     When step('PolicyActions.CreatePolicy', {'scenarioArgs': {'lineOfBusiness': __arg.cucumberDataCache.lineOfBusiness}, 'templateArgs': {'policyVehicleId': __arg.cucumberDataCache.policyVehicleId, 'policyInsuredId': __arg.cucumberDataCache.policyInsuredId}})
     * __arg.cucumberDataCache.policyNumber = getStepVariable('PolicyActions.CreatePolicy','policyNumber')
+

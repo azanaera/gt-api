@@ -13,6 +13,8 @@ Feature: Claim
           switch(lineOfBusiness) {
             case 'PersonalAuto':
               return sharedPath + 'createPAClaim.json';
+            case 'Homeowners':
+              return sharedPath + 'createHOClaim.json';
             default:
              throw 'Unhandled line of business: ' + lineOfBusiness;
          }

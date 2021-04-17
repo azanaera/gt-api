@@ -1,0 +1,94 @@
+      {
+     
+             "requiredTemplateParameters" : ["policyNumber"],
+             "optionalTemplateParameters" : ["lossDate"],
+	         "data": {
+               "attributes": {
+                   "arson": false,
+                   "description": "An all field home owner claim",
+                   "faultRating": {
+                       "code": "1" 
+                   },
+                   "fireDepartmentResponded": true,
+                   "fireSource": "flamethrower",
+                   "hasWaterBeenTurnedOff": true,
+                   "howReported": {
+                       "code": "phone"
+                   },
+                   "howWasFireDiscovered": "house burned down",
+                   "isAnyoneInjured": false,
+                   "isHomeHabitable": false,
+                   "isHomeSecure": false,
+                   "isRoofProtected": false,
+                   "lobCode": {
+                       "code": "HOPLine"
+                   },
+                   "lossCause": {
+                       "code": "explosion"
+                   },
+                   "lossDate": "#(getAttributeValue(args.lossDate, claimUtils.getCurrentDateTime()))",
+                   "lossLocation": {
+                       "addressLine1": "100 Main St.",
+                       "city": "Somewhere",
+                       "postalCode": "90123",
+                       "state": {
+                           "code": "CA"
+                       }
+                   },
+                   "mainContact": {
+                       "refid": "homer"
+                   },
+                   "policyNumber": "#(args.policyNumber)",
+                   "reportedByType": {
+                       "code": "friend"
+                   },
+                   "reporter": {
+                       "refid": "homer"
+                   },
+                   "smokeDamageOnly": false,
+                   "waterSource": {
+                       "code": "other"
+                   },
+                   "witnesses": [
+                       {
+                           "contact": {
+                               "refid": "homer"
+                           },
+                           "perspective": "here",
+                           "position": {
+                               "code": "0"
+                           },
+                           "statementObtained": {
+                               "code": "Yes"
+                           }
+                       }
+                   ]
+               }
+           },
+           "included": {
+               "ClaimContact": [
+                   {
+                       "attributes": {
+                           "firstName": "Homer",
+                           "lastName": "Flintstone",
+                           "contactSubtype": "Person",
+                           "primaryAddress": {
+                               "addressLine1": "1001 E Hillsdale Blvd.",
+                               "addressLine2": "Suite 800",
+                               "addressLine3": "Reception",
+                               "city": "Foster City",
+                               "country": "US",
+                               "county": "San Mateo County",
+                               "postalCode": "94404",
+                               "state": {
+                                   "code": "CA"
+                               }
+                           }
+                       },
+                       "method": "post",
+                       "refid": "homer",
+                       "uri": "/claim/v1/claims/this/contacts"
+                   }
+                 ]
+                }
+              }

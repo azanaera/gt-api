@@ -13,6 +13,8 @@ Feature: Policy
         switch(lineOfBusiness) {
           case 'PersonalAuto':
             return sharedPath + 'createPAPolicy.json';
+          case 'Homeowners':
+            return sharedPath + 'createHOPolicy.json';
           default:
            throw 'Unhandled line of business: ' + lineOfBusiness;
        }

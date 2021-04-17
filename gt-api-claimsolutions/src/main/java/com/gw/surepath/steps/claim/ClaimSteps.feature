@@ -17,6 +17,17 @@ Feature: Claim
     * __arg.cucumberDataCache.insuredId = getStepVariable('ClaimActions.CreateClaim','insuredId')
     And step('ClaimActions.SubmitClaimAndAutoAssign', {'scenarioArgs': {'username': username, 'draftClaimId': claimId}})
 
+  @id=CreateHOClaim
+  Scenario: a Homeowners claim
+    * __arg.cucumberDataCache.lineOfBusiness = 'Homeowners'
+    When step('PolicyActions.CreatePolicy', {'scenarioArgs': {'lineOfBusiness': __arg.cucumberDataCache.lineOfBusiness}, 'templateArgs': {}})
+    * def policyNumber = getStepVariable('PolicyActions.CreatePolicy', 'policyNumber')
+    And step('ClaimActions.CreateClaim', {'scenarioArgs': {'username': username, 'lineOfBusiness': __arg.cucumberDataCache.lineOfBusiness}, 'templateArgs': {'policyNumber': policyNumber}})
+    * def claimId = getStepVariable('ClaimActions.CreateClaim', 'claimId')
+    * __arg.cucumberDataCache.claimId = claimID
+    * __arg.cucumberDataCache.insuredId = getStepVariable('ClaimActions.CreateClaim', 'insuredId')
+    And step('ClaimActions.SubmitClaimAndAutoAssign', {'scenarioArgs': {'username': username, 'draftClaimId': claimId}}
+
   @id=CreateClaim
   Scenario: I create a claim
     And step('ClaimActions.CreateClaim', {'scenarioArgs': {'username': username, 'lineOfBusiness': __arg.cucumberDataCache.lineOfBusiness},'templateArgs': {'policyNumber': __arg.cucumberDataCache.policyNumber}})
