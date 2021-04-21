@@ -1,0 +1,10 @@
+{
+  "requiredTemplateParameters": ["contactSearchZipCode"],
+  "data": {
+    "attributes": {
+      "address": {
+        "postalCode": "#(args.contactSearchZipCode)"
+      }
+    }
+  }
+}

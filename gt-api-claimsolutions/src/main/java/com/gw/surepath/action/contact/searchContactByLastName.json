@@ -1,0 +1,8 @@
+{
+  "requiredTemplateParameters": ["contactSearchLastName"],
+  "data": {
+    "attributes": {
+      "lastName": "#(args.contactSearchLastName)"
+    }
+  }
+}

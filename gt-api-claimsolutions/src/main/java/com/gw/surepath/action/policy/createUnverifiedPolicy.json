@@ -1,0 +1,43 @@
+{
+  "requiredTemplateParameters": ["lineOfBusiness", "effectiveDate", "expirationDate", "insuredFirstName", "insuredLastName"],
+  "optionalTemplateParameters": ["policyNumber"],
+  "data": {
+    "attributes": {
+      "effectiveDate": "#(args.effectiveDate)",
+      "expirationDate": "#(args.expirationDate)",
+      "policyContacts": [
+        {
+          "contact": {
+            "refid": "insured"
+          },
+          "roles": [
+            {
+              "code": "insured"
+            }
+          ]
+        }
+      ],
+      "policyNumber": "#(getAttributeValue(args.policyNumber, util.randomWordPair()))",
+      "policyType": {
+        "code": "#(args.lineOfBusiness)"
+      }
+    }
+  },
+  "included": {
+    "Contact": [
+      {
+        "attributes": {
+          "firstName": "#(args.insuredFirstName)",
+          "lastName": "#(args.insuredLastName)",
+          "subtype": {
+            "code": "Person"
+          },
+          "policySystemId": "pc:contact_1"
+        },
+        "method": "post",
+        "refid": "insured",
+        "uri": "/testsupport/v1/contacts"
+      }
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "requiredTemplateParameters" : ["injuredPersonId"],
+  "data": {
+    "attributes": {
+      "ambulanceUsed": true,
+      "description": "Brain damage",
+      "detailedInjuryType": {
+        "code": "07"
+      },
+      "disabledDueToAccident": {
+        "code": "totaldisabled"
+      },
+      "generalInjuryType": {
+        "code": "specific"
+      },
+      "injuredPerson": {
+        "id": "#(args.injuredPersonId)"
+      },
+      "lossParty": {
+        "code": "insured"
+      },
+      "lostWages": false,
+      "severity": {
+        "code": "fatal"
+      },
+      "treatmentType": {
+        "code": "major_surgery"
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "requiredTemplateParameters": ["claimNumber"],
+  "data": {
+    "attributes": {
+      "claimNumber": "#(args.claimNumber)"
+    }
+  }
+}

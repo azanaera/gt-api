@@ -1,0 +1,10 @@
+{
+  "requiredTemplateParameters": ["policyNumber"],
+  "optionalTemplateParameters": ["lossDate"],
+  "data" : {
+    "attributes": {
+      "lossDate": "#(getAttributeValue(args.lossDate, claimUtils.getDateWithDayOffset(-3,true)))",
+      "policyNumber": "#(args.policyNumber)"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "requiredTemplateParameters" : ["claimantId", "claimantType", "coverageSubtype", "lossParty", "primaryCoverage", "incidentId"],
+  "data": {
+    "attributes": {
+      "claimant": {
+        "id": "#(args.claimantId)"
+      },
+      "claimantType": {
+        "code": "#(args.claimantType)"
+      },
+      "coverageSubtype": {
+        "code": "#(args.coverageSubtype)"
+      },
+      "jurisdiction": {
+        "code": "AZ"
+      },
+      "lossParty": {
+        "code": "#(args.lossParty)"
+      },
+      "primaryCoverage": {
+        "code": "#(args.primaryCoverage)"
+      },
+      "progress": {
+        "code": "new"
+      },
+      "vehicleIncident": {
+        "id": "#(args.incidentId)"
+      }
+    }
+  }
+}

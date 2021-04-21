@@ -1,0 +1,12 @@
+{
+  "requiredTemplateParameters": ["nameSearchTypeCode"],
+  "optionalTemplateParameters": ["firstName"],
+  "data": {
+    "attributes": {
+      "firstName": "#(getAttributeValue(args.firstName, 'John'))",
+      "nameSearchType": {
+        "code": "#(args.nameSearchTypeCode)"
+      }
+    }
+  }
+}

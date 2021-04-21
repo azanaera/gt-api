@@ -1,0 +1,13 @@
+{
+  "optionalTemplateParameters": ["city","state"],
+  "data": {
+    "attributes": {
+      "lossLocation": {
+        "city": "#(getAttributeValue(args.city, 'San Mateo'))",
+        "state": {
+          "code": "#(getAttributeValue(args.state, 'CA'))"
+        }
+      }
+    }
+  }
+}

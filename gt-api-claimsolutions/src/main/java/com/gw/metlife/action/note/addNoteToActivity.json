@@ -1,0 +1,16 @@
+{
+  "requiredTemplateParameters" : ["topic", "body"],
+  "data": {
+    "attributes": {
+      "body": "#(args.body)",
+      "confidential": false,
+      "securityType": {
+        "code": "public"
+      },
+      "subject": "#(args.topic)",
+      "topic": {
+        "code": "#(args.topic)"
+      }
+    }
+  }
+}

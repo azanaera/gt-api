@@ -1,0 +1,13 @@
+{
+  "requiredTemplateParameters": ["reporterId"],
+  "data" : {
+    "attributes": {
+      "reportedByType" : {
+        "code": "self"
+      },
+      "reporter": {
+        "id": "#(args.reporterId)"
+      }
+    }
+  }
+}

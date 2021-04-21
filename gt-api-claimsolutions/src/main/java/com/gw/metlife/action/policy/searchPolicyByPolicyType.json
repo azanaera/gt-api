@@ -1,0 +1,10 @@
+{
+  "requiredTemplateParameters": ["policyType"],
+  "data": {
+    "attributes": {
+      "policyType": {
+        "code": "#(args.policyType)"
+      }
+    }
+  }
+}

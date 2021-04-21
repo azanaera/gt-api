@@ -1,0 +1,31 @@
+{
+  "requiredTemplateParameters" : ["injuredPersonId"],
+  "data": {
+    "attributes": {
+      "ambulanceUsed": true,
+      "description": "Sprained ankle",
+      "detailedInjuryType": {
+        "code": "49"
+      },
+      "disabledDueToAccident": {
+        "code": "notdisabled"
+      },
+      "generalInjuryType": {
+        "code": "specific"
+      },
+      "injuredPerson": {
+        "id": "#(args.injuredPersonId)"
+      },
+      "lossParty": {
+        "code": "insured"
+      },
+      "lostWages": false,
+      "severity": {
+        "code": "minor"
+      },
+      "treatmentType": {
+        "code": "oth"
+      }
+    }
+  }
+}

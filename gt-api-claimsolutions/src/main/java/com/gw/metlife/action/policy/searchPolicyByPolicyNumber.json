@@ -1,0 +1,8 @@
+{
+  "requiredTemplateParameters": ["policyNumber"],
+  "data": {
+    "attributes": {
+      "policyNumber": "#(args.policyNumber)"
+    }
+  }
+}

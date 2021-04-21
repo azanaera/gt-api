@@ -1,0 +1,22 @@
+{
+  "requiredTemplateParameters": ["claimantId", "incidentId"],
+  "data": {
+    "attributes": {
+      "claimant": {
+        "id": "#(args.claimantId)"
+      },
+      "claimantType": {
+        "code": "insured"
+      },
+      "coverageSubtype": {
+        "code": "PAUMBICov"
+      },
+      "injuryIncident": {
+        "id": "#(args.incidentId)"
+      },
+      "primaryCoverage": {
+        "code": "PAUMBICov"
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "requiredTemplateParameters": ["lossLocationId"],
+  "data": {
+    "attributes": {
+      "lossLocation": {
+        "id": "#(args.lossLocationId)"
+      }
+    }
+  }
+}

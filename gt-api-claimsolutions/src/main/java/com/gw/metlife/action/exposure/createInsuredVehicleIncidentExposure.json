@@ -1,0 +1,34 @@
+{
+  "requiredTemplateParameters" : ["claimantId", "incidentId"],
+  "data": {
+    "attributes": {
+      "claimant": {
+        "id": "#(args.claimantId)"
+      },
+      "claimantType": {
+        "code": "insured"
+      },
+      "coverageSubtype": {
+        "code": "PACollisionCov"
+      },
+      "jurisdiction": {
+        "code": "AZ"
+      },
+      "lossCategory": {
+        "code": "default"
+      },
+      "lossParty": {
+        "code": "insured"
+      },
+      "primaryCoverage": {
+        "code": "PACollisionCov"
+      },
+      "progress": {
+        "code": "new"
+      },
+      "vehicleIncident": {
+        "id": "#(args.incidentId)"
+      }
+    }
+  }
+}

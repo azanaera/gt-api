@@ -1,0 +1,13 @@
+{
+  "requiredTemplateParameters": ["contactSearchCity", "contactSearchState"],
+  "data": {
+    "attributes": {
+      "address": {
+        "city": "#(args.contactSearchCity)",
+        "state": {
+          "code": "#(args.contactSearchState)"
+        }
+      }
+    }
+  }
+}

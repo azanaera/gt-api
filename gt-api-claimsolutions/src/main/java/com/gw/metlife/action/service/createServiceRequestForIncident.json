@@ -1,0 +1,63 @@
+{
+  "requiredTemplateParameters" : ["customerId", "refNum", "serviceCode", "newSpecialistUri","kindCode", "incidentId"],
+  "optionalTemplateParameters" : ["addressLine1", "city", "stateCode", "postalCode","countryCode"],
+  "data": {
+    "attributes": {
+      "incident": {
+        "id": "#(args.incidentId)"
+      },
+      "instruction": {
+        "customer": {
+          "id": "#(args.customerId)"
+        },
+        "serviceAddress": {
+          "addressLine1": "#(getAttributeValue(args.addressLine1, '1001 E Hillsdale Blvd'))",
+          "city": "#(getAttributeValue(args.city, 'Foster City'))",
+          "state": {
+            "code": "#(getAttributeValue(args.stateCode, 'CA'))"
+          },
+          "postalCode": "#(getAttributeValue(args.postalCode, '94403'))",
+          "country": "#(getAttributeValue(args.countryCode, 'us'))"
+        },
+        "services": [
+          {
+            "code": "#(args.serviceCode)"
+          }
+        ]
+      },
+      "kind": {
+        "code": "#(args.kindCode)"
+      },
+      "specialist": {
+        "refid": "vendor"
+      },
+      "referenceNumber": "#(args.refNum)",
+      "requestedQuoteCompletionDate": "#(claimUtils.getDateWithDayOffset(5, false))",
+      "tier": {
+        "code": "low"
+      }
+    }
+  },
+  "included": {
+    "ClaimContact": [
+      {
+        "attributes": {
+          "companyName": "Allendale",
+          "contactSubtype": "Company",
+          "primaryAddress": {
+            "addressLine1": "1001 E Hillsdale Blvd",
+            "city": "Foster City",
+            "state": {
+              "code": "CA"
+            },
+            "postalCode": "94404",
+            "country": "us"
+          }
+        },
+        "refid": "vendor",
+        "method": "post",
+        "uri": "#(args.newSpecialistUri)"
+      }
+    ]
+  }
+}

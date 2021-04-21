@@ -1,0 +1,19 @@
+{
+  "requiredTemplateParameters": ["driverId", "policyVehicleId"],
+  "data": {
+    "attributes": {
+      "collision": true,
+      "damageDescription": "Major Damage",
+      "driver": {
+        "id": "#(args.driverId)"
+      },
+      "lossParty": {
+        "code": "insured"
+      },
+      "totalLoss": true,
+      "vehicle": {
+        "policySystemId": "#(args.policyVehicleId)"
+      }
+    }
+  }
+}

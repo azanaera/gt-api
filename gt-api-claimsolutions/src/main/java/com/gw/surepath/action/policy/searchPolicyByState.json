@@ -1,0 +1,10 @@
+{
+  "requiredTemplateParameters": ["stateCode"],
+  "data": {
+    "attributes": {
+      "state": {
+        "code": "#(args.stateCode)"
+      }
+    }
+  }
+}
